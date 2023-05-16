@@ -395,6 +395,96 @@ const PRODUCTS = [
       '../assets/images/adiantum/adiantum-3.webp',
     ],
   },
+  {
+    id: 23,
+    title: 'Platycerium bifurcatum',
+    description:
+      'Platycerium bifurcatum is a species of fern with heart-shaped sterile fronds and arching grey-green fertile fronds which are forked and strap-shaped, and grow up to 90 cm. Makes a wonderful, eye-catching house-plant.',
+    price: 49.99,
+    discountPercentage: 5,
+    rating: 4.12,
+    stock: 3,
+    latinName: 'Platycerium Bifurcatum',
+    category: 'Ferns',
+    thumbnail: '../assets/images/platycerium/platycerium-thumb.webp',
+    images: [
+      '../assets/images/platycerium/platycerium-1.webp',
+      '../assets/images/platycerium/platycerium-2.webp',
+      '../assets/images/platycerium/platycerium-3.webp',
+    ],
+  },
+  {
+    id: 24,
+    title: 'Pteris tricolor',
+    description:
+      'Pteris quadriaurita "Tricolor" is a beautiful tropical fern with shiny fronds in shades of bronze, red and green. A compact, full-body habit makes it a showoff in containers.',
+    price: 15.99,
+    discountPercentage: 7,
+    rating: 4.23,
+    stock: 10,
+    latinName: 'Pteris quadriaurita Tricolor',
+    category: 'Ferns',
+    thumbnail: '../assets/images/pteris/pteris-thumb.webp',
+    images: [
+      '../assets/images/pteris/pteris-1.webp',
+      '../assets/images/pteris/pteris-2.webp',
+      '../assets/images/pteris/pteris-3.webp',
+    ],
+  },
+  {
+    id: 25,
+    title: 'Aloe vera',
+    description:
+      'Aloe vera is used by many as a medicinal or decorative plant. And no wonder. It doesn’t need much to grow strong and healthy.',
+    price: 12.99,
+    discountPercentage: 5,
+    rating: 4.41,
+    stock: 16,
+    latinName: 'Aloe vera',
+    category: 'Cacti and succulents',
+    thumbnail: '../assets/images/aloe/aloe-thumb.webp',
+    images: [
+      '../assets/images/aloe/aloe-1.webp',
+      '../assets/images/aloe/aloe-2.webp',
+      '../assets/images/aloe/aloe-3.webp',
+    ],
+  },
+  {
+    id: 26,
+    title: 'Crassula pyramidal',
+    description:
+      'Crassula pyramidalis is an amazing succulent with columns of stacked, grey green leaves in a distinct, geometric pattern that really draws in the eye.',
+    price: 7.99,
+    discountPercentage: 5,
+    rating: 4.03,
+    stock: 7,
+    latinName: 'Crassula pyramidalis',
+    category: 'Cacti and succulents',
+    thumbnail: '../assets/images/crassula/crassula-thumb.webp',
+    images: [
+      '../assets/images/crassula/crassula-1.webp',
+      '../assets/images/crassula/crassula-2.webp',
+      '../assets/images/crassula/crassula-3.webp',
+    ],
+  },
+  {
+    id: 27,
+    title: 'Gymnocalycium Mikhanovich',
+    description:
+      'Gymnocalycium is a small, globular cactus that tends to cluster at the base. It has well marked ribs with evident horizontal grooves and short, white spines.',
+    price: 19.99,
+    discountPercentage: 10,
+    rating: 3.86,
+    stock: 12,
+    latinName: 'Gymnocalycium Mihanovichii Japan',
+    category: 'Cacti and succulents',
+    thumbnail: '../assets/images/gymnocalycium/gymnocalycium-thumb.webp',
+    images: [
+      '../assets/images/gymnocalycium/gymnocalycium-1.webp',
+      '../assets/images/gymnocalycium/gymnocalycium-2.webp',
+      '../assets/images/gymnocalycium/gymnocalycium-3.webp',
+    ],
+  },
 ];
 
 export default PRODUCTS;
