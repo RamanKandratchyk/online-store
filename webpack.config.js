@@ -24,9 +24,9 @@ const baseConfig = {
         use: 'ts-loader',
         include: [path.resolve(__dirname, 'src')],
       },
-      { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
+      { test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/i, type: 'asset/resource' },
       {
-        test: /\.(ttf|eot|woff|woff2|svg)$/,
+        test: /\.(ttf|eot|woff|woff2|svg|webp)$/,
         use: {
           loader: 'file-loader',
           options: {
