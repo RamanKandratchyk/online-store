@@ -52,6 +52,13 @@
   src: url('../assets/fonts/solway-v18-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  // font-size: calc(0.2rem + 1vw);
+}
+
 $main-color: #08ac68;
 
 .header {
@@ -167,7 +174,14 @@ $main-color: #08ac68;
 }
 
 .main {
-  height: 82vh;
+  // height: 82vh;
+  width: 100%;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  font-family: 'Solway';
+  color: $main-color;
+  // box-sizing: border-box;
 
   &::before {
     content: '';
@@ -180,7 +194,50 @@ $main-color: #08ac68;
     z-index: -1;
   }
 
-  .main__filters {
-    width: 25%;
+  .main-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .filters {
+      width: 25%;
+      background: rgba(24, 26, 28, 0.3);
+      border: 1px solid $main-color;
+      border-radius: 0.7rem;
+      padding: 0.5%;
+      height: -moz-fit-content;
+      height: fit-content;
+
+      .filters__buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 2%;
+
+        .filters__buttons-button {
+          // background-color: #3e5368;
+          background: linear-gradient(115deg, #5dc050 1.5%, #0c8f17 100%);
+          border: 1px solid $main-color;
+          border-radius: 0.3rem;
+          padding: 0 2%;
+          // padding-left: 2%;
+          // padding-right: 2%;
+          font-size: 120%;
+          cursor: pointer;
+          color: white;
+          transition: transform 0.1s ease-in-out;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            border-color: #51dd61;
+          }
+
+          &:active {
+            background: #51dd61;
+          }
+        }
+      }
+    }
   }
 }
