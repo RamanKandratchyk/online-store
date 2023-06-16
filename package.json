@@ -1,7 +1,7 @@
 {
-  "name": "async-race",
+  "name": "online-store",
   "version": "1.0.0",
-  "description": "Learning task for REST API and asynchronous programming",
+  "description": "Learning task for creating an online store",
   "main": "webpack.base.config.js",
   "scripts": {
     "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rolling-scopes-school/online-store"
+    "url": "https://github.com/rolling-scopes-school/tasks/tree/master/tasks/online-store-team"
   },
   "keywords": [],
   "author": "Raman Kandratchyk",

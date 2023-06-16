@@ -62,6 +62,31 @@
 $main-color: #08ac68;
 $text-color: #46f0a9;
 
+html {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: green;
+    border-radius: 20px;
+    border: 2px solid #42fdb1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: green;
+    border-radius: 20px;
+    border: 2px solid #42fdb1;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #42fdb1;
+  }
+
+  scrollbar-color: green #42fdb1;
+  scrollbar-width: thin;
+}
+
 .header {
   width: 100%;
   // padding: 0 2%;
@@ -262,6 +287,7 @@ $text-color: #46f0a9;
           overflow-y: auto;
           background: rgba(76, 74, 65, 0.7);
           padding: 2%;
+          // height: 160px;
 
           .checkbox-line {
             white-space: nowrap;
@@ -292,6 +318,63 @@ $text-color: #46f0a9;
               padding-left: 0.3rem;
             }
           }
+        }
+
+        .filters__filter-min-max {
+          margin-top: 5%;
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+        }
+
+        .filters__range {
+          position: relative;
+          height: 2rem;
+
+          input[type='range'] {
+            position: absolute;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 96%;
+            margin: 2%;
+            overflow: hidden;
+            outline: none;
+            background: linear-gradient($text-color, $text-color) no-repeat center;
+            background-size: 100% 2px;
+            // pointer-events: none;
+            padding: 2px;
+          }
+
+          input[type='range']:nth-child(2) {
+            background: none;
+          }
+
+          input[type='range']::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            pointer-events: all;
+            width: 20px;
+            height: 20px;
+            background-color: $main-color;
+            border-radius: 50%;
+            box-shadow: 0 0 0 1px $text-color;
+            cursor: pointer;
+          }
+
+          input[type='range']::-moz-range-thumb {
+            // -webkit-appearance: none;
+            pointer-events: all;
+            width: 20px;
+            height: 20px;
+            background-color: $main-color;
+            border-radius: 50%;
+            box-shadow: 0 0 0 1px $text-color;
+            cursor: pointer;
+          }
+
+          // #price-from {
+          //   height: 0;
+          //   z-index: 1;
+          // }
         }
       }
     }
