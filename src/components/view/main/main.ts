@@ -147,12 +147,12 @@ stockToSlider.oninput = () => controlStockToSlider(stockFromSlider, stockToSlide
 
 // products tiles (small) render code start
 
-const productsItems = document.querySelector('.products-items') as HTMLDivElement;
+/* const productsItems = document.querySelector('.products-items') as HTMLDivElement;
 productsItems.innerHTML = '';
 
 PRODUCTS.forEach((prod) => {
   productsItems.innerHTML += `
-    <div class="item-tile">
+    <div class="item-tile small-tile">
       <div class="product-item">
         <div class="item-wrapper" style="background-image: url(${prod.thumbnail})">
           <div class="item-text">
@@ -166,6 +166,59 @@ PRODUCTS.forEach((prod) => {
       </div>
     </div>
 `;
-});
+}); */
 
 // products tiles (small) render code end
+
+// products tiles (big) render code start
+
+const productsItems = document.querySelector('.products-items') as HTMLDivElement;
+productsItems.innerHTML = '';
+
+PRODUCTS.forEach((prod) => {
+  productsItems.innerHTML += `
+    <div class="item-tile big-tile">
+      <div class="product-item">
+        <div class="item-wrapper" style="background-image: url(${prod.thumbnail})">
+          <div class="item-text">
+            <div class="item-title">${prod.title}</div>
+            <div class="item-info">
+              <div class="item-info__list">
+                <p class="item-info__list-item">
+                  <span class="list-item__title">Category:</span>
+                  ${prod.category}
+                </p>
+                <p class="item-info__list-item">
+                  <span class="list-item__title">Brand:</span>
+                  ${prod.brand}
+                </p>
+                <p class="item-info__list-item">
+                  <span class="list-item__title">Price:</span>
+                  €${prod.price.toFixed(2)}
+                </p>
+                <p class="item-info__list-item">
+                  <span class="list-item__title">Discount:</span>
+                  ${prod.discountPercentage}%
+                </p>
+                <p class="item-info__list-item">
+                  <span class="list-item__title">Rating:</span>
+                  ${prod.rating}
+                </p>
+                <p class="item-info__list-item">
+                  <span class="list-item__title">Stock:</span>
+                  ${prod.stock}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="item-buttons">
+            <button class="item-button">ADD TO CARD</button>
+            <button class="item-button">DETAILS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+`;
+});
+
+// products tiles (big) render code end

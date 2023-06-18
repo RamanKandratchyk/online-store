@@ -307,12 +307,13 @@
       }
     }
 
+    // for small tiles
     .products-items {
       padding: 0.5%;
       display: flex;
       flex-wrap: wrap;
 
-      .item-tile {
+      .item-tile.small-tile {
         position: relative;
         width: 14.6%;
         padding-top: 12%;
@@ -329,7 +330,7 @@
           position: absolute;
           top: 0;
           background-size: cover;
-          // background-image: url(../assets/images/spathiphyllum/spathiphyllum-thumb.webp);
+          background-image: url(../assets/images/spathiphyllum/spathiphyllum-thumb.webp);
           background-position-x: 0%;
           background-position-y: 0%;
 
@@ -363,6 +364,121 @@
               font-size: 60%;
               cursor: pointer;
               color: $text-color;
+              transition: transform 0.1s ease-in-out;
+
+              &:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+                border-color: #51dd61;
+              }
+
+              &:active {
+                background: $main-color;
+                color: #ffffff;
+              }
+            }
+
+            .item-button:first-child {
+              overflow: hidden;
+            }
+          }
+        }
+      }
+    }
+
+    // for big tiles
+    .products-items {
+      padding: 0.5%;
+      display: flex;
+      flex-wrap: wrap;
+
+      .item-tile.big-tile {
+        position: relative;
+        width: 23%;
+        padding-top: 20%;
+        margin: 1%;
+        border: 1px solid $main-color;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        .item-wrapper {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          background-size: cover;
+          background-image: url(../assets/images/spathiphyllum/spathiphyllum-thumb.webp);
+          background-position-x: 0%;
+          background-position-y: 0%;
+
+          .item-text {
+            width: 100%;
+            height: 83%;
+            cursor: pointer;
+
+            .item-title {
+              background: rgba(24, 26, 28, 0.8);
+              padding: 1%;
+              font-size: 90%;
+              text-align: center;
+              border-bottom: 1px solid $main-color;
+              white-space: nowrap;
+            }
+
+            .item-info {
+              color: $text-color;
+
+              .item-info__list {
+                width: 55%;
+                // background-color: #4d2f14f2;
+                background: rgba(24, 26, 28, 0.5);
+                border-radius: 0 0 0.4rem;
+                border-bottom: 1px solid $main-color;
+                border-right: 1px solid $main-color;
+                padding: 1%;
+
+                .item-info__list-item {
+                  font-size: 0.6rem;
+                  color: #82e1ff;
+
+                  .list-item__title {
+                    font-size: 0.6rem;
+                    color: $text-color;
+                  }
+                }
+              }
+            }
+          }
+
+          .item-buttons {
+            width: 100%;
+            height: 15%;
+            display: flex;
+            justify-content: space-evenly;
+
+            .item-button {
+              background-color: #181a1c;
+              border: 1px solid $main-color;
+              border-radius: 0.3rem;
+              padding-left: 2%;
+              padding-right: 2%;
+              font-size: 80%;
+              cursor: pointer;
+              color: $text-color;
+              transition: transform 0.1s ease-in-out;
+
+              &:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+                border-color: #51dd61;
+              }
+
+              &:active {
+                background: $main-color;
+                color: #ffffff;
+              }
             }
 
             .item-button:first-child {
