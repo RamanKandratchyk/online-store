@@ -651,9 +651,9 @@ const PRODUCTS = [
     description:
       'Ivy tends to conjure up images of overgrown ancient walls or romantic seating areas in the countryside, but the plant also has a lot to offer indoors too.',
     price: 37.99,
-    discountPercentage: 7,
-    rating: 4.72,
-    stock: 11,
+    discountPercentage: 5,
+    rating: 4.51,
+    stock: 15,
     brand: 'Willoway Nurseries',
     latinName: 'Hedera helix',
     category: 'Lianas',
