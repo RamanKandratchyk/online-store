@@ -1,3 +1,5 @@
+import PRODUCTS from '../../../data/products';
+
 // change logo colours code start
 
 function getRandomNumber(range: number): number {
@@ -142,3 +144,28 @@ stockFromSlider.oninput = () => controlStockFromSlider(stockFromSlider, stockToS
 stockToSlider.oninput = () => controlStockToSlider(stockFromSlider, stockToSlider);
 
 // dual range stock slider code end
+
+// products tiles (small) render code start
+
+const productsItems = document.querySelector('.products-items') as HTMLDivElement;
+productsItems.innerHTML = '';
+
+PRODUCTS.forEach((prod) => {
+  productsItems.innerHTML += `
+    <div class="item-tile">
+      <div class="product-item">
+        <div class="item-wrapper" style="background-image: url(${prod.thumbnail})">
+          <div class="item-text">
+            <div class="item-title">${prod.title}</div>
+          </div>
+          <div class="item-buttons">
+            <button class="item-button">ADD TO CARD</button>
+            <button class="item-button">DETAILS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+`;
+});
+
+// products tiles (small) render code end

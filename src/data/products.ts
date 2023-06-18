@@ -30,11 +30,11 @@ const PRODUCTS = [
     brand: 'Little Green',
     latinName: 'Zamioculcas zamiifolia',
     category: 'Decorative leafy plants',
-    thumbnail: '../assets/images/spathiphyllum/zamioculcas-thumb.webp',
+    thumbnail: '../assets/images/zamioculcas/zamioculcas-thumb.webp',
     images: [
-      '../assets/images/spathiphyllum/zamioculcas-1.webp',
-      '../assets/images/spathiphyllum/zamioculcas-2.webp',
-      '../assets/images/spathiphyllum/zamioculcas-3.webp',
+      '../assets/images/zamioculcas/zamioculcas-1.webp',
+      '../assets/images/zamioculcas/zamioculcas-2.webp',
+      '../assets/images/zamioculcas/zamioculcas-3.webp',
     ],
   },
   {
