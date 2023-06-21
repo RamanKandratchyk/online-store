@@ -1,0 +1,74 @@
+.main-details {
+  min-height: 82vh;
+  width: 100%;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  font-family: 'Solway';
+  color: $main-color;
+  // box-sizing: border-box;
+
+  &::before {
+    content: '';
+    background: url(../assets/backgrounds/background-5.webp) no-repeat center top/cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: -5px;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .details-container {
+    width: 80%;
+    height: -moz-fit-content;
+    height: fit-content;
+
+    .link-navigation {
+      margin: 3% auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 100%;
+
+      .link-item {
+        text-decoration: none;
+        color: $main-color;
+      }
+    }
+
+    .product-detail {
+      width: 100%;
+      border: 2px solid $main-color;
+      border-radius: 1rem;
+      background: rgba(24, 26, 28, 0.5);
+      overflow: hidden;
+
+      .product-title {
+        width: 100%;
+        text-align: center;
+        // background: #181a1c;
+        // background: rgba(76, 74, 65, 0.7);
+        background: rgba(24, 26, 28, 0.5);
+        border-bottom: 1px solid $main-color;
+
+        h1 {
+          font-size: 150%;
+          padding: 0.5%;
+          margin: 0;
+        }
+      }
+
+      .product-data {
+        display: flex;
+        width: 100%;
+        padding: 0.5%;
+
+        .product-photos {
+          width: 40%;
+          display: flex;
+        }
+      }
+    }
+  }
+}
