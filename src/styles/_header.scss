@@ -46,6 +46,7 @@
         color: green;
         font-size: 3em;
         margin: 0;
+        text-shadow: 0 0 10px green, 0 0 20px $text-color, 0 0 30px $text-color, 0 0 40px $text-color;
       }
 
       .logo-subtitle {
