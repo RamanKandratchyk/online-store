@@ -209,6 +209,18 @@
                     cursor: pointer;
                     border: 1px solid $main-color;
                     color: $main-color;
+                    transition: transform 0.1s ease-in-out;
+
+                    &:hover {
+                      cursor: pointer;
+                      transform: scale(1.15);
+                      border-color: #51dd61;
+                    }
+
+                    &:active {
+                      background: $main-color;
+                      color: #ffffff;
+                    }
                   }
                 }
 
@@ -221,6 +233,87 @@
                 }
               }
             }
+          }
+        }
+      }
+
+      .cart-total {
+        width: 30%;
+        border: 1px solid $main-color;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        background-color: #1e1b1b80;
+        height: -moz-fit-content;
+        height: fit-content;
+
+        .cart-total__title {
+          text-align: center;
+          font-size: 130%;
+          background: rgba(24, 26, 28, 0.5);
+          padding: 0.3rem;
+          border-bottom: 1px solid $main-color;
+        }
+
+        .total-value {
+          width: 90%;
+          font-size: 170%;
+          color: $text-color;
+          text-align: center;
+          margin: 4%;
+
+          .total-value__title {
+            font-size: 90%;
+            color: $subtext-color;
+          }
+        }
+
+        .promo-code {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .promo-code__input {
+            background-color: #181a1c;
+            width: 70%;
+            border: 1px solid $main-color;
+            color: $text-color;
+            border-radius: 2rem;
+            padding: 0.4rem;
+            text-align: center;
+            outline: none;
+            font-size: 100%;
+          }
+        }
+
+        .promo-example {
+          display: block;
+          margin: 3% auto;
+          text-align: center;
+          color: #78159b;
+        }
+
+        .cart-total__button {
+          display: block;
+          width: 50%;
+          margin: 3rem auto 1rem;
+          background-color: rgba(24, 26, 28, 0.5);
+          border: 2px solid $main-color;
+          border-radius: 0.3rem;
+          padding: 2% 0;
+          font-size: 100%;
+          cursor: pointer;
+          color: $text-color;
+          transition: transform 0.1s ease-in-out;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            border-color: #51dd61;
+          }
+
+          &:active {
+            background: $main-color;
+            color: #ffffff;
           }
         }
       }
