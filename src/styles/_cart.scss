@@ -60,6 +60,7 @@
 
             .cart-limit {
               color: $subtext-color;
+              text-align: end;
 
               .cart-limit__input {
                 text-align: center;
@@ -70,6 +71,39 @@
                 background: rgba(24, 26, 28, 0.5);
                 font-size: 140%;
                 color: $text-color;
+                width: 30%;
+                -moz-appearance: textfield;
+                -webkit-appearance: textfield;
+                appearance: textfield;
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                  display: none;
+                }
+              }
+
+              .number-plus-minus {
+                width: 6%;
+                padding: 0;
+                text-align: center;
+                border: 1px solid $main-color;
+                border-radius: 0.2rem;
+                background: rgba(24, 26, 28, 0.5);
+                font-size: 140%;
+                font-weight: 600;
+                color: $main-color;
+                transition: transform 0.1s ease-in-out;
+
+                &:hover {
+                  cursor: pointer;
+                  transform: scale(1.05);
+                  border-color: #51dd61;
+                }
+
+                &:active {
+                  background: $main-color;
+                  color: #ffffff;
+                }
               }
             }
 
@@ -85,6 +119,18 @@
                 padding: 0.1rem;
                 font-size: 140%;
                 color: $main-color;
+                transition: transform 0.1s ease-in-out;
+
+                &:hover {
+                  cursor: pointer;
+                  transform: scale(1.05);
+                  border-color: #51dd61;
+                }
+
+                &:active {
+                  background: $main-color;
+                  color: #ffffff;
+                }
               }
 
               .cur-page-number {
@@ -273,7 +319,8 @@
           justify-content: center;
 
           .promo-code__input {
-            background-color: #181a1c;
+            // background-color: #181a1c;
+            background: rgba(24, 26, 28, 0.5);
             width: 70%;
             border: 1px solid $main-color;
             color: $text-color;
