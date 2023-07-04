@@ -82,19 +82,628 @@
       </div>
     </header>
 
-    <!-- 404-page markup start -->
+    <!-- main filters and products tiles markup start -->
+    <!-- <main class="main">
+      <section class="main-container">
+        <aside class="filters">
+          <div class="filters__buttons">
+            <button class="filters__buttons-button">Reset Filters</button>
+            <button class="filters__buttons-button">Copy Link</button>
+          </div>
 
-    <main class="main-page-404">
-      <div class="page-404-container">
-        <div class="page-404-message">Page not found</div>
-        <div class="page-404-message">Oops!</div>
-        <div class="page-404-message__small">Something went wrong</div>
-        <button class="page-404-button">Back to the Main Page</button>
-        <img src="./assets/svg/404-page-image.svg" alt="Sad flower" class="page-404-image" />
+          <div class="filters__filter-container">
+            <h3 class="filters__filter-title">Category</h3>
+            <div class="filters__filter-list">
+              <div class="checkbox-line">
+                <input id="decorative-plants" type="checkbox" />
+                <label class="filters__filter-label" for="decorative-plants">Decorative leafy plants</label>
+                <span class="filters__filter-number">(0/6)</span>
+              </div>
+              <div class="checkbox-line">
+                <input id="blooming-flowers" type="checkbox" />
+                <label class="filters__filter-label" for="blooming-flowers">Blooming indoor flowers</label>
+                <span class="filters__filter-number">(0/6)</span>
+              </div>
+              <div class="checkbox-line">
+                <input id="palm-trees" type="checkbox" />
+                <label class="filters__filter-label" for="palm-trees">Palm trees, large plants</label>
+                <span class="filters__filter-number">(0/6)</span>
+              </div>
+              <div class="checkbox-line">
+                <input id="ferns" type="checkbox" />
+                <label class="filters__filter-label" for="ferns">Ferns</label>
+                <span class="filters__filter-number">(0/6)</span>
+              </div>
+              <div class="checkbox-line">
+                <input id="cacti" type="checkbox" />
+                <label class="filters__filter-label" for="cacti">Cacti and succulents</label>
+                <span class="filters__filter-number">(0/6)</span>
+              </div>
+              <div class="checkbox-line">
+                <input id="lianas" type="checkbox" />
+                <label class="filters__filter-label" for="lianas">Lianas</label>
+                <span class="filters__filter-number">(0/6)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="filters__filter-container">
+            <h3 class="filters__filter-title">Brand</h3>
+            <div class="filters__filter-list">
+              <div class="checkbox-line">
+                <input id="greenish" type="checkbox" />
+                <label class="filters__filter-label" for="greenish">Greenish</label>
+                <span class="filters__filter-number">(0/6)</span>
+              </div>
+              <div class="checkbox-line">
+                <input id="little-green" type="checkbox" />
+                <label class="filters__filter-label" for="little-green">Little Green</label>
+                <span class="filters__filter-number">(0/6)</span>
+              </div>
+              <div class="checkbox-line">
+                <input id="garden-world" type="checkbox" />
+                <label class="filters__filter-label" for="garden-world">Garden World</label>
+                <span class="filters__filter-number">(0/6)</span>
+              </div>
+              <div class="checkbox-line">
+                <input id="spring-rose" type="checkbox" />
+                <label class="filters__filter-label" for="spring-rose">Spring Rose Souq</label>
+                <span class="filters__filter-number">(0/6)</span>
+              </div>
+              <div class="checkbox-line">
+                <input id="willoway-nurseries" type="checkbox" />
+                <label class="filters__filter-label" for="willoway-nurseries">Willoway Nurseries</label>
+                <span class="filters__filter-number">(0/6)</span>
+              </div>
+              <div class="checkbox-line">
+                <input id="plant-depot" type="checkbox" />
+                <label class="filters__filter-label" for="plant-depot">Plant Depot</label>
+                <span class="filters__filter-number">(0/6)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="filters__filter-container">
+            <h3 class="filters__filter-title">Price</h3>
+            <div class="filters__filter-min-max">
+              <div id="price-from-text">€10.00</div>
+              <span> ⟷ </span>
+              <div id="price-to-text">€90.00</div>
+            </div>
+            <div class="filters__range">
+              <input type="range" id="price-from" min="0" max="100" value="10" />
+              <input type="range" id="price-to" min="0" max="100" value="90" />
+            </div>
+          </div>
+
+          <div class="filters__filter-container">
+            <h3 class="filters__filter-title">Stock</h3>
+            <div class="filters__filter-min-max">
+              <div id="stock-from-text">10</div>
+              <span> ⟷ </span>
+              <div id="stock-to-text">90</div>
+            </div>
+            <div class="filters__range">
+              <input type="range" id="stock-from" min="0" max="100" value="10" />
+              <input type="range" id="stock-to" min="0" max="100" value="90" />
+            </div>
+          </div>
+        </aside>
+
+        <section class="products">
+          <div class="sort-products">
+            <div class="sort-bar">
+              <select name="sort" class="sort-bar__select">
+                <option value="sort-title" class="sort-name" disabled selected>Sort options:</option>
+                <option value="price-ASC">Sort by price ASC</option>
+                <option value="price-DESC">Sort by price DESC</option>
+                <option value="rating-ASC">Sort by rating ASC</option>
+                <option value="rating-DESC">Sort by rating DESC</option>
+                <option value="discount-ASC">Sort by discount ASC</option>
+                <option value="discount-DESC">Sort by discount DESC</option>
+              </select>
+            </div>
+
+            <div class="sort-products__stat">
+              Found:
+              <span class="stat-text">100</span>
+            </div>
+
+            <div class="sort-products__search-bar">
+              <input type="search" class="search-bar__input" placeholder="Search product" />
+            </div>
+
+            <div class="sort-products__view-mode">
+              <div class="small-v active-mode">
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+              </div>
+              <div class="big-v">
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+              </div>
+            </div>
+          </div> -->
+
+    <!-- small tile -->
+    <!-- <div class="products-items">
+            <div class="item-tile">
+              <div class="product-item">
+                <div class="item-wrapper">
+                  <div class="item-text">
+                    <div class="item-title">Spathiphyllum</div>
+                  </div>
+                  <div class="item-buttons">
+                    <button class="item-button">ADD TO CARD</button>
+                    <button class="item-button">DETAILS</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+    <!-- big tile -->
+    <!-- <div class="products-items">
+            <div class="item-tile big-tile">
+              <div class="product-item">
+                <div class="item-wrapper">
+                  <div class="item-text">
+                    <div class="item-title">Spathiphyllum</div>
+                    <div class="item-info">
+                      <div class="item-info__list">
+                        <p class="item-info__list-item">
+                          <span class="list-item__title">Category:</span>
+                          Decorative leafy plants
+                        </p>
+                        <p class="item-info__list-item">
+                          <span class="list-item__title">Brand:</span>
+                          Greenish
+                        </p>
+                        <p class="item-info__list-item">
+                          <span class="list-item__title">Price:</span>
+                          €20.00
+                        </p>
+                        <p class="item-info__list-item">
+                          <span class="list-item__title">Discount:</span>
+                          10%
+                        </p>
+                        <p class="item-info__list-item">
+                          <span class="list-item__title">Rating:</span>
+                          4.75
+                        </p>
+                        <p class="item-info__list-item">
+                          <span class="list-item__title">Stock:</span>
+                          15
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-buttons">
+                    <button class="item-button">ADD TO CARD</button>
+                    <button class="item-button">DETAILS</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main> -->
+    <!-- main filters and products tiles markup end -->
+
+    <!-- product details markup start -->
+    <!-- <main class="main-details">
+      <div class="details-container">
+        <div class="link-navigation">
+          <a href="/" class="link-item">STORE</a>
+          <span>>></span>
+          <a href="" class="link-item">DECORATIVE LEAFY PLANTS</a>
+          <span>>></span>
+          <a href="" class="link-item">GREENISH</a>
+          <span>>></span>
+          <a href="" class="link-item">SPATHIPHYLLUM</a>
+        </div>
+        <div class="product-detail">
+          <div class="product-title">
+            <h1>Spathiphyllum</h1>
+          </div>
+          <div class="product-data">
+            <div class="product-photos">
+              <div class="slides">
+                <img
+                  src="./assets/images/spathiphyllum/spathiphyllum-thumb.webp"
+                  alt="plant image"
+                  class="slide-item"
+                />
+                <img src="./assets/images/spathiphyllum/spathiphyllum-1.webp" alt="plant image" class="slide-item" />
+                <img src="./assets/images/spathiphyllum/spathiphyllum-2.webp" alt="plant image" class="slide-item" />
+                <img src="./assets/images/spathiphyllum/spathiphyllum-3.webp" alt="plant image" class="slide-item" />
+              </div>
+              <div class="grand-photo">
+                <img
+                  src="./assets/images/spathiphyllum/spathiphyllum-thumb.webp"
+                  alt="plant photo"
+                  class="grand-photo__image"
+                />
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-info__item">
+                <h3 class="product-info__item-title">Description:</h3>
+                <p class="product-info__item-text">
+                  With its elegant and timeless appearance, the peace lily (Spathiphyllum) blends into any room. It is
+                  ideal for inexperienced hobby gardeners and comes in a variety of different heights and leaf colours.
+                </p>
+              </div>
+              <div class="product-info__item">
+                <h3 class="product-info__item-title">Discount Percentage:</h3>
+                <p class="product-info__item-text">10%</p>
+              </div>
+              <div class="product-info__item">
+                <h3 class="product-info__item-title">Rating:</h3>
+                <p class="product-info__item-text">4.75</p>
+              </div>
+              <div class="product-info__item">
+                <h3 class="product-info__item-title">Stock:</h3>
+                <p class="product-info__item-text">15</p>
+              </div>
+              <div class="product-info__item">
+                <h3 class="product-info__item-title">Brand:</h3>
+                <p class="product-info__item-text">Greenish</p>
+              </div>
+              <div class="product-info__item">
+                <h3 class="product-info__item-title">Category:</h3>
+                <p class="product-info__item-text">Decorative leafy plants</p>
+              </div>
+            </div>
+            <div class="cart-info">
+              <div class="cart-info__cart-buttons">
+                €20.00
+                <button class="cart-button">ADD TO CART</button>
+                <button class="cart-button">BUY NOW</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main> -->
+    <!-- product details markup end -->
+
+    <!-- cart markup start -->
+    <main class="main-cart">
+      <div class="cart-container">
+        <div class="cart-wrapper">
+          <div class="cart-products">
+            <div class="title-and-page-control">
+              <h2 class="cart-title">Products In Cart</h2>
+              <div class="page-control">
+                <div class="cart-limit">
+                  LIMIT:
+                  <button
+                    class="number-plus-minus"
+                    onclick="this.nextElementSibling.stepDown(); this.nextElementSibling.onchange();"
+                  >
+                    -
+                  </button>
+                  <input type="number" class="cart-limit__input" min="1" max="5" value="1" />
+                  <button
+                    class="number-plus-minus"
+                    onclick="this.previousElementSibling.stepUp(); this.previousElementSibling.onchange();"
+                  >
+                    +
+                  </button>
+                </div>
+                <div class="page-numbers">
+                  PAGE:
+                  <button class="page-number-button"><</button>
+                  <span class="cur-page-number">1</span>
+                  <button class="page-number-button">></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="cart-products-items">
+              <div class="cart-product-item-container">
+                <div class="cart-item">
+                  <div class="cart-item__number">1</div>
+                  <div class="cart-item__info">
+                    <img
+                      class="cart-item__image"
+                      src="./assets/images/spathiphyllum/spathiphyllum-thumb.webp"
+                      alt="cart product image"
+                    />
+                    <div class="cart-item__detail">
+                      <div class="cart-item__title">
+                        <h3 class="cart-item__title-text">Spathiphyllum</h3>
+                      </div>
+                      <div class="cart-item__description">
+                        With its elegant and timeless appearance, the peace lily (Spathiphyllum) blends into any room.
+                        It is ideal for inexperienced hobby gardeners and comes in a variety of different heights and
+                        leaf colours.
+                      </div>
+                      <div class="cart-item__others">
+                        <div>Rating: 4.75</div>
+                        <div>Discount: 10%</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="number-control">
+                    <div class="cart-stock-control">Stock: 15</div>
+                    <div class="incDec-control">
+                      <button class="incDec-control__button" name="minus">-</button>
+                      1
+                      <button class="incDec-control__button" name="plus">+</button>
+                    </div>
+                    <div class="cart-amount-control">€20.00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-item-container">
+                <div class="cart-item">
+                  <div class="cart-item__number">1</div>
+                  <div class="cart-item__info">
+                    <img
+                      class="cart-item__image"
+                      src="./assets/images/spathiphyllum/spathiphyllum-thumb.webp"
+                      alt="cart product image"
+                    />
+                    <div class="cart-item__detail">
+                      <div class="cart-item__title">
+                        <h3 class="cart-item__title-text">Spathiphyllum</h3>
+                      </div>
+                      <div class="cart-item__description">
+                        With its elegant and timeless appearance, the peace lily (Spathiphyllum) blends into any room.
+                        It is ideal for inexperienced hobby gardeners and comes in a variety of different heights and
+                        leaf colours.
+                      </div>
+                      <div class="cart-item__others">
+                        <div>Rating: 4.75</div>
+                        <div>Discount: 10%</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="number-control">
+                    <div class="cart-stock-control">Stock: 15</div>
+                    <div class="incDec-control">
+                      <button class="incDec-control__button" name="minus">-</button>
+                      1
+                      <button class="incDec-control__button" name="plus">+</button>
+                    </div>
+                    <div class="cart-amount-control">€20.00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-item-container">
+                <div class="cart-item">
+                  <div class="cart-item__number">1</div>
+                  <div class="cart-item__info">
+                    <img
+                      class="cart-item__image"
+                      src="./assets/images/spathiphyllum/spathiphyllum-thumb.webp"
+                      alt="cart product image"
+                    />
+                    <div class="cart-item__detail">
+                      <div class="cart-item__title">
+                        <h3 class="cart-item__title-text">Spathiphyllum</h3>
+                      </div>
+                      <div class="cart-item__description">
+                        With its elegant and timeless appearance, the peace lily (Spathiphyllum) blends into any room.
+                        It is ideal for inexperienced hobby gardeners and comes in a variety of different heights and
+                        leaf colours.
+                      </div>
+                      <div class="cart-item__others">
+                        <div>Rating: 4.75</div>
+                        <div>Discount: 10%</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="number-control">
+                    <div class="cart-stock-control">Stock: 15</div>
+                    <div class="incDec-control">
+                      <button class="incDec-control__button" name="minus">-</button>
+                      1
+                      <button class="incDec-control__button" name="plus">+</button>
+                    </div>
+                    <div class="cart-amount-control">€20.00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-item-container">
+                <div class="cart-item">
+                  <div class="cart-item__number">1</div>
+                  <div class="cart-item__info">
+                    <img
+                      class="cart-item__image"
+                      src="./assets/images/spathiphyllum/spathiphyllum-thumb.webp"
+                      alt="cart product image"
+                    />
+                    <div class="cart-item__detail">
+                      <div class="cart-item__title">
+                        <h3 class="cart-item__title-text">Spathiphyllum</h3>
+                      </div>
+                      <div class="cart-item__description">
+                        With its elegant and timeless appearance, the peace lily (Spathiphyllum) blends into any room.
+                        It is ideal for inexperienced hobby gardeners and comes in a variety of different heights and
+                        leaf colours.
+                      </div>
+                      <div class="cart-item__others">
+                        <div>Rating: 4.75</div>
+                        <div>Discount: 10%</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="number-control">
+                    <div class="cart-stock-control">Stock: 15</div>
+                    <div class="incDec-control">
+                      <button class="incDec-control__button" name="minus">-</button>
+                      1
+                      <button class="incDec-control__button" name="plus">+</button>
+                    </div>
+                    <div class="cart-amount-control">€20.00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-product-item-container">
+                <div class="cart-item">
+                  <div class="cart-item__number">1</div>
+                  <div class="cart-item__info">
+                    <img
+                      class="cart-item__image"
+                      src="./assets/images/spathiphyllum/spathiphyllum-thumb.webp"
+                      alt="cart product image"
+                    />
+                    <div class="cart-item__detail">
+                      <div class="cart-item__title">
+                        <h3 class="cart-item__title-text">Spathiphyllum</h3>
+                      </div>
+                      <div class="cart-item__description">
+                        With its elegant and timeless appearance, the peace lily (Spathiphyllum) blends into any room.
+                        It is ideal for inexperienced hobby gardeners and comes in a variety of different heights and
+                        leaf colours.
+                      </div>
+                      <div class="cart-item__others">
+                        <div>Rating: 4.75</div>
+                        <div>Discount: 10%</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="number-control">
+                    <div class="cart-stock-control">Stock: 15</div>
+                    <div class="incDec-control">
+                      <button class="incDec-control__button" name="minus">-</button>
+                      1
+                      <button class="incDec-control__button" name="plus">+</button>
+                    </div>
+                    <div class="cart-amount-control">€20.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-total">
+            <h2 class="cart-total__title">Summary</h2>
+            <div class="total-value">
+              <span class="total-value__title">Products: </span>
+              3
+            </div>
+            <div class="total-value">
+              <span class="total-value__title">Total: </span>
+              €7000.00
+            </div>
+            <div class="promo-code">
+              <input type="search" class="promo-code__input" placeholder="Enter promo code" />
+            </div>
+            <span class="promo-example">Promo for test: 'RS', 'EPM'</span>
+            <button class="cart-total__button">BUY NOW</button>
+          </div>
+        </div>
+
+        <!-- buy modal window markup start -->
+        <!-- <div class="buy-modal-window">
+          <div class="modal-content">
+            <form action="#" class="modal-form">
+              <div class="person-details">
+                <h2 class="person-details__title">Personal details</h2>
+                <div class="form-item person-name">
+                  <input type="text" class="form-item__input" name="name-input" placeholder="Name" />
+                  <div class="error-msg">error</div>
+                </div>
+                <div class="form-item phone-number">
+                  <input type="tel" class="form-item__input" name="phone-input" placeholder="Phone number" />
+                  <div class="error-msg">error</div>
+                </div>
+                <div class="form-item person-address">
+                  <input type="text" class="form-item__input" name="address-input" placeholder="Delivery address" />
+                  <div class="error-msg">error</div>
+                </div>
+                <div class="form-item person-email">
+                  <input type="email" class="form-item__input" name="email-input" placeholder="E-mail" />
+                  <div class="error-msg">error</div>
+                </div>
+              </div>
+
+              <div class="card-details">
+                <h2 class="card-details__title">Credit card details</h2>
+                <div class="card-data">
+                  <div class="card-number">
+                    <img src="./assets/images/no-logo.webp" alt="no card logo" class="card-logo" />
+                    <input type="text" class="card-number__input" name="card-number-input" placeholder="Card number" />
+                  </div>
+
+                  <div class="other-card-data">
+                    <div class="valid-data">
+                      VALID:
+                      <input type="text" class="valid-data__input" placeholder="Valid Thru" />
+                    </div>
+                    <div class="cvv-data">
+                      CVV:
+                      <input type="text" class="valid-data__input" placeholder="Code" />
+                    </div>
+                  </div>
+                </div>
+                <div class="card-err">Card number - error</div>
+                <div class="card-err">Card valid thru - error</div>
+                <div class="card-err">Card CVV - error</div>
+              </div>
+
+              <button class="card-submit-button" type="submit">CONFIRM</button>
+            </form>
+          </div>
+        </div> -->
+        <!-- buy modal window markup end -->
       </div>
     </main>
 
-    <!-- 404-page markup end -->
+    <!-- cart markup end -->
 
     <footer class="footer">
       <div class="footer-container">

@@ -1,0 +1,74 @@
+.main-page-404 {
+  min-height: 82vh;
+  width: 100%;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  font-family: 'Solway';
+  color: $text-color;
+  // box-sizing: border-box;
+
+  &::before {
+    content: '';
+    background: url(../assets/backgrounds/background-6.webp) no-repeat center top/cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: -5px;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .page-404-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: -moz-fit-content;
+    height: fit-content;
+    font-family: 'Rum Raisin';
+    color: green;
+
+    .page-404-message {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    .page-404-message__small {
+      font-size: 1.5em;
+      margin-top: 1%;
+    }
+
+    .page-404-button {
+      display: block;
+      width: 20%;
+      margin: 1rem auto;
+      background-color: rgba(24, 26, 28, 0.5);
+      border: 2px solid $main-color;
+      border-radius: 0.3rem;
+      padding: 1% 0;
+      font-size: 170%;
+      cursor: pointer;
+      color: $text-color;
+      transition: transform 0.1s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        border-color: #51dd61;
+      }
+
+      &:active {
+        background: $main-color;
+        color: #ffffff;
+      }
+    }
+
+    .page-404-image {
+      border: 2px solid $main-color;
+      border-radius: 0.3rem;
+      width: 20%;
+    }
+  }
+}
