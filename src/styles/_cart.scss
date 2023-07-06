@@ -36,7 +36,8 @@
         border: 1px solid $main-color;
         overflow: hidden;
         border-radius: 0.5rem;
-        background-color: #1c1e1b80;
+        // background-color: #1c1e1b80;
+        background: rgba(24, 26, 28, 0.5);
         height: -moz-fit-content;
         height: fit-content;
 
@@ -245,7 +246,8 @@
                   .incDec-control__button {
                     width: 2rem;
                     height: 2rem;
-                    background-color: #181a1c;
+                    // background-color: #181a1c;
+                    background: rgba(24, 26, 28, 0.7);
                     border-radius: 10rem;
                     font-size: 150%;
                     display: flex;
@@ -283,12 +285,36 @@
         }
       }
 
+      @mixin code-drop-button {
+        background: rgba(24, 26, 28, 0.5);
+        cursor: pointer;
+        border: 1px solid #08ac68;
+        border-radius: 0.2rem;
+        padding: 0.1rem;
+        font-size: 85%;
+        color: #08ac68;
+        margin: 0 2%;
+        transition: transform 0.1s ease-in-out;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+          border-color: #51dd61;
+        }
+
+        &:active {
+          background: $main-color;
+          color: #ffffff;
+        }
+      }
+
       .cart-total {
         width: 30%;
         border: 1px solid $main-color;
         overflow: hidden;
         border-radius: 0.5rem;
-        background-color: #1e1b1b80;
+        // background-color: #1e1b1b80;
+        background: rgba(27, 27, 30, 0.5);
         height: -moz-fit-content;
         height: fit-content;
 
@@ -313,6 +339,41 @@
           }
         }
 
+        .old-price {
+          text-decoration: line-through;
+        }
+
+        .appl-codes {
+          width: 85%;
+          margin: 6% auto;
+          border: 1px solid $main-color;
+          border-radius: 0.3rem;
+          overflow: hidden;
+
+          .appl-codes__title {
+            text-align: center;
+            background: rgba(24, 26, 28, 0.5);
+            border-bottom: 1px solid $main-color;
+          }
+
+          .applied-promo {
+            color: $text-color;
+            text-align: center;
+            border-bottom: 1px solid $main-color;
+            padding: 2% 0;
+            display: flex;
+            justify-content: center;
+
+            &:last-child {
+              border: 0;
+            }
+          }
+
+          .code-drop-button {
+            @include code-drop-button;
+          }
+        }
+
         .promo-code {
           display: flex;
           align-items: center;
@@ -329,6 +390,15 @@
             text-align: center;
             outline: none;
             font-size: 100%;
+          }
+        }
+
+        .res-promo {
+          margin-top: 3%;
+          text-align: center;
+
+          .code-drop-button {
+            @include code-drop-button;
           }
         }
 
