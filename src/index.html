@@ -427,19 +427,9 @@
               <div class="page-control">
                 <div class="cart-limit">
                   LIMIT:
-                  <button
-                    class="number-plus-minus"
-                    onclick="this.nextElementSibling.stepDown(); this.nextElementSibling.onchange();"
-                  >
-                    -
-                  </button>
+                  <button class="number-plus-minus" onclick="this.nextElementSibling.stepDown();">-</button>
                   <input type="number" class="cart-limit__input" min="1" max="5" value="1" />
-                  <button
-                    class="number-plus-minus"
-                    onclick="this.previousElementSibling.stepUp(); this.previousElementSibling.onchange();"
-                  >
-                    +
-                  </button>
+                  <button class="number-plus-minus" onclick="this.previousElementSibling.stepUp();">+</button>
                 </div>
                 <div class="page-numbers">
                   PAGE:
