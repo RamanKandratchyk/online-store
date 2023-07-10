@@ -1,4 +1,6 @@
-const PRODUCTS = [
+import { Product } from '../types/interfaces';
+
+const PRODUCTS: Product[] = [
   {
     id: 1,
     title: 'Spathiphyllum',
