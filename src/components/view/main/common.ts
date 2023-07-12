@@ -1,3 +1,5 @@
+import { STATE } from '../../state/state';
+
 // change logo colours code start
 
 function getRandomNumber(range: number): number {
@@ -26,3 +28,5 @@ function changeLogoColours(): void {
 setInterval(changeLogoColours, 1000);
 
 // change logo colours code end
+
+console.log('STATE =', STATE);
