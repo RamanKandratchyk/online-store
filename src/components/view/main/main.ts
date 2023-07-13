@@ -7,7 +7,7 @@ const priceToSlider = document.getElementById('price-to') as HTMLInputElement;
 const priceFromText = document.getElementById('price-from-text') as HTMLDivElement;
 const priceToText = document.getElementById('price-to-text') as HTMLDivElement;
 
-function getParsed(currentFrom: HTMLInputElement, currentTo: HTMLInputElement) {
+function getParsed(currentFrom: HTMLInputElement, currentTo: HTMLInputElement): [number, number] {
   const from = parseInt(currentFrom.value, 10);
   const to = parseInt(currentTo.value, 10);
   return [from, to];

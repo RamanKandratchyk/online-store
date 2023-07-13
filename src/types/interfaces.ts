@@ -44,6 +44,16 @@ export interface Range {
   max: number;
 }
 
+export interface DualSlider {
+  range: Range;
+  fromTextId: string;
+  toTextId: string;
+  fromInputId: string;
+  toInputId: string;
+  // correctionNumber: number;
+  currencySymbol: string;
+}
+
 export interface CartState {
   id: number;
   count: number;
