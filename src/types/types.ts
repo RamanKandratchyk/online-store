@@ -2,6 +2,9 @@ export type RouterMode = 'history' | 'hash';
 
 export type CallbackType = (...arg: string[]) => void;
 
+export type CategoryFilterData = [string, string, string, number];
+export type BrandFilterData = [string, string, string, number];
+
 export enum SortKind {
   popular = 'Most Popular',
   lettersAsc = 'Letters Ascend',
