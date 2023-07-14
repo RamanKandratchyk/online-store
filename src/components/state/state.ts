@@ -4,14 +4,14 @@ import { AppState, Product } from '../../types/interfaces';
 
 const PRODUCTS_CLONE: Product[] = structuredClone(PRODUCTS);
 const sortPrice = PRODUCTS_CLONE.sort((a, b) => a.price - b.price);
-const minPrice: number = sortPrice[0].price;
-const maxPrice: number = sortPrice[sortPrice.length - 1].price;
+export const minPrice: number = sortPrice[0].price;
+export const maxPrice: number = sortPrice[sortPrice.length - 1].price;
 console.log('minPrice =', minPrice);
 console.log('maxPrice =', maxPrice);
 
 const sortStock = PRODUCTS_CLONE.sort((a, b) => a.stock - b.stock);
-const minStock: number = sortStock[0].stock;
-const maxStock: number = sortStock[sortStock.length - 1].stock;
+export const minStock: number = sortStock[0].stock;
+export const maxStock: number = sortStock[sortStock.length - 1].stock;
 console.log('minStock =', minStock);
 console.log('maxStock =', maxStock);
 
