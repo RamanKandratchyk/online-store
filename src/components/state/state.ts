@@ -20,7 +20,7 @@ export const DEFAULT_STATE: AppState = {
   cartItems: 3,
   cartPage: 1,
   cartPromocode: [],
-  sortIndex: SortKind.popular,
+  sortIndex: SortKind.ratingAsc,
   sortView: 'bigTile',
   filters: {
     search: '',
