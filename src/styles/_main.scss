@@ -248,6 +248,11 @@
         text-align: center;
       }
 
+      .search-active {
+        border: 1px solid $text-color;
+        padding: 0.3rem;
+      }
+
       .sort-products__view-mode {
         display: flex;
         align-items: center;
