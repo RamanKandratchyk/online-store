@@ -1,197 +1,182 @@
-import PRODUCTS from '../../../data/products';
+// import { app } from '../../../index';
+import { STATE } from '../../state/state';
+import CategoryFilter from '../filters/categoryFilter';
+import BrandFilter from '../filters/brandFilter';
+import { PriceFilter, priceFilterData } from '../filters/priceFilter';
+import { StockFilter, stockFilterData } from '../filters/stockFilter';
+import SortFormFilter from '../filters/sortFormFilter';
+import SearchFilter from '../filters/searchFilter';
+import ProductCards from './productCards';
 
-// dual range price slider code start
+class Main {
+  categoryFilter: CategoryFilter = new CategoryFilter(STATE.filters.category);
 
-const priceFromSlider = document.getElementById('price-from') as HTMLInputElement;
-const priceToSlider = document.getElementById('price-to') as HTMLInputElement;
-const priceFromText = document.getElementById('price-from-text') as HTMLDivElement;
-const priceToText = document.getElementById('price-to-text') as HTMLDivElement;
+  brandFilter: BrandFilter = new BrandFilter(STATE.filters.brand);
 
-function getParsed(currentFrom: HTMLInputElement, currentTo: HTMLInputElement): [number, number] {
-  const from = parseInt(currentFrom.value, 10);
-  const to = parseInt(currentTo.value, 10);
-  return [from, to];
-}
+  priceFilter: PriceFilter = new PriceFilter(priceFilterData);
 
-function fillSlider(
-  from: HTMLInputElement,
-  to: HTMLInputElement,
-  sliderColor: string,
-  rangeColor: string,
-  controlSlider: HTMLInputElement
-) {
-  const rangeDistance = +to.max - +to.min;
-  const fromPosition = +from.value - +to.min;
-  const toPosition = +to.value - +to.min;
-  const sliderToFill = controlSlider;
-  sliderToFill.style.backgroundImage = `linear-gradient(
-    to right,
-    ${sliderColor} 0%,
-    ${sliderColor} ${(fromPosition / rangeDistance) * 100}%,
-    ${rangeColor} ${(fromPosition / rangeDistance) * 100}%,
-    ${rangeColor} ${(toPosition / rangeDistance) * 100}%, 
-    ${sliderColor} ${(toPosition / rangeDistance) * 100}%, 
-    ${sliderColor} 100%)`;
-}
+  stockFilter: StockFilter = new StockFilter(stockFilterData);
 
-function setToggleAccessible(currentTarget: HTMLInputElement) {
-  const sliderToToggle = currentTarget;
-  if (Number(currentTarget.value) <= 0) {
-    sliderToToggle.style.zIndex = '2';
-  } else {
-    sliderToToggle.style.zIndex = '0';
-  }
-}
+  sortFormFilter: SortFormFilter = new SortFormFilter();
 
-function controlPriceFromSlider(fromSliderVar: HTMLInputElement, toSliderVar: HTMLInputElement) {
-  const [from, to] = getParsed(fromSliderVar, toSliderVar);
-  fillSlider(fromSliderVar, toSliderVar, '#C6C6C6', '#46f0a9', priceToSlider);
-  if (from > to) {
-    priceFromSlider.value = `${to}`;
-    priceFromText.innerText = `€${to.toFixed(2)}`;
-  } else {
-    priceFromSlider.value = `${from}`;
-    priceFromText.innerText = `€${from.toFixed(2)}`;
-  }
-}
+  searchFilter: SearchFilter = new SearchFilter();
 
-function controlPriceToSlider(fromSliderVar: HTMLInputElement, toSliderVar: HTMLInputElement) {
-  const [from, to] = getParsed(fromSliderVar, toSliderVar);
-  fillSlider(fromSliderVar, toSliderVar, '#C6C6C6', '#46f0a9', priceToSlider);
-  setToggleAccessible(toSliderVar);
-  if (from <= to) {
-    priceToSlider.value = `${to}`;
-    priceToText.innerText = `€${to.toFixed(2)}`;
-  } else {
-    priceToSlider.value = `${from}`;
-    priceToText.innerText = `€${from.toFixed(2)}`;
-  }
-}
+  productCards: ProductCards = new ProductCards();
 
-fillSlider(priceFromSlider, priceToSlider, '#C6C6C6', '#25daa5', priceToSlider);
-setToggleAccessible(priceToSlider);
-
-priceFromSlider.oninput = () => controlPriceFromSlider(priceFromSlider, priceToSlider);
-priceToSlider.oninput = () => controlPriceToSlider(priceFromSlider, priceToSlider);
-
-// dual range price slider code end
-
-// dual range stock slider code start
-
-const stockFromSlider = document.getElementById('stock-from') as HTMLInputElement;
-const stockToSlider = document.getElementById('stock-to') as HTMLInputElement;
-const stockFromText = document.getElementById('stock-from-text') as HTMLDivElement;
-const stockToText = document.getElementById('stock-to-text') as HTMLDivElement;
-
-function controlStockFromSlider(fromSliderVar: HTMLInputElement, toSliderVar: HTMLInputElement) {
-  const [from, to] = getParsed(fromSliderVar, toSliderVar);
-  fillSlider(fromSliderVar, toSliderVar, '#C6C6C6', '#46f0a9', stockToSlider);
-  if (from > to) {
-    stockFromSlider.value = `${to}`;
-    stockFromText.innerText = `${to}`;
-  } else {
-    stockFromSlider.value = `${from}`;
-    stockFromText.innerText = `${from}`;
-  }
-}
-
-function controlStockToSlider(fromSliderVar: HTMLInputElement, toSliderVar: HTMLInputElement) {
-  const [from, to] = getParsed(fromSliderVar, toSliderVar);
-  fillSlider(fromSliderVar, toSliderVar, '#C6C6C6', '#46f0a9', stockToSlider);
-  setToggleAccessible(toSliderVar);
-  if (from <= to) {
-    stockToSlider.value = `${to}`;
-    stockToText.innerText = `${to}`;
-  } else {
-    stockToSlider.value = `${from}`;
-    stockToText.innerText = `${from}`;
-  }
-}
-
-fillSlider(stockFromSlider, stockToSlider, '#C6C6C6', '#25daa5', stockToSlider);
-setToggleAccessible(stockToSlider);
-
-stockFromSlider.oninput = () => controlStockFromSlider(stockFromSlider, stockToSlider);
-stockToSlider.oninput = () => controlStockToSlider(stockFromSlider, stockToSlider);
-
-// dual range stock slider code end
-
-// products tiles (small) render code start
-
-/* const productsItems = document.querySelector('.products-items') as HTMLDivElement;
-productsItems.innerHTML = '';
-
-PRODUCTS.forEach((prod) => {
-  productsItems.innerHTML += `
-    <div class="item-tile small-tile">
-      <div class="product-item">
-        <div class="item-wrapper" style="background-image: url(${prod.thumbnail})">
-          <div class="item-text">
-            <div class="item-title">${prod.title}</div>
+  render(): string {
+    return `
+      <section class="main-container">
+        <aside class="filters">
+          <div class="filters__buttons">
+            <button class="filters__buttons-button">Reset Filters</button>
+            <button class="filters__buttons-button">Copy Link</button>
           </div>
-          <div class="item-buttons">
-            <button class="item-button-add">ADD TO CARD</button>
-            <button class="item-button">DETAILS</button>
-          </div>
-        </div>
-      </div>
-    </div>
-`;
-}); */
+    
+          ${this.categoryFilter.render()}
+    
+          ${this.brandFilter.render()}
+    
+          ${this.priceFilter.render()}
 
-// products tiles (small) render code end
-
-// products tiles (big) render code start
-
-const productsItems = document.querySelector('.products-items') as HTMLDivElement;
-productsItems.innerHTML = '';
-
-PRODUCTS.forEach((prod) => {
-  productsItems.innerHTML += `
-    <div class="item-tile big-tile">
-      <div class="product-item">
-        <div class="item-wrapper" style="background-image: url(${prod.thumbnail})">
-          <a href="#" class="item-text">
-            <div class="item-title">${prod.title}</div>
-            <div class="item-info">
-              <div class="item-info__list">
-                <p class="item-info__list-item">
-                  <span class="list-item__title">Category:</span>
-                  ${prod.category}
-                </p>
-                <p class="item-info__list-item">
-                  <span class="list-item__title">Brand:</span>
-                  ${prod.brand}
-                </p>
-                <p class="item-info__list-item">
-                  <span class="list-item__title">Price:</span>
-                  €${prod.price.toFixed(2)}
-                </p>
-                <p class="item-info__list-item">
-                  <span class="list-item__title">Discount:</span>
-                  ${prod.discountPercentage}%
-                </p>
-                <p class="item-info__list-item">
-                  <span class="list-item__title">Rating:</span>
-                  ${prod.rating}
-                </p>
-                <p class="item-info__list-item">
-                  <span class="list-item__title">Stock:</span>
-                  ${prod.stock}
-                </p>
+          ${this.stockFilter.render()}
+        </aside>
+    
+        <section class="products">
+          <div class="sort-products">
+            ${this.sortFormFilter.render()}
+    
+            <div class="sort-products__stat">
+              Found:
+              <span class="stat-text">${STATE.products.length}</span>
+            </div>
+    
+            ${this.searchFilter.render()}
+    
+            <div class="sort-products__view-mode">
+              <div class="small-v active-mode">
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+                <div class="small-v-dot">.</div>
+              </div>
+              <div class="big-v">
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
+                <div class="big-v-dot">.</div>
               </div>
             </div>
-          </a>
-          <div class="item-buttons">
-            <button class="item-button-add">ADD TO CARD</button>
-            <a href="#">
-              <button class="item-button">DETAILS</button>
-            </a>
           </div>
-        </div>
-      </div>
-    </div>
-`;
-});
+    
+          <!-- small tile -->
+          <!-- <div class="products-items">
+            <div class="item-tile">
+              <div class="product-item">
+                <div class="item-wrapper">
+                  <div class="item-text">
+                    <div class="item-title">Spathiphyllum</div>
+                  </div>
+                  <div class="item-buttons">
+                    <button class="item-button">ADD TO CARD</button>
+                    <button class="item-button">DETAILS</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+    
+          <!-- big tile -->
+          <div class="products-items">
+            <div class="item-tile big-tile">
+              <div class="product-item">
+                <div class="item-wrapper">
+                  <div class="item-text">
+                    <div class="item-title">Spathiphyllum</div>
+                    <div class="item-info">
+                      <div class="item-info__list">
+                        <p class="item-info__list-item">
+                          <span class="list-item__title">Category:</span>
+                          Decorative leafy plants
+                        </p>
+                        <p class="item-info__list-item">
+                          <span class="list-item__title">Brand:</span>
+                          Greenish
+                        </p>
+                        <p class="item-info__list-item">
+                          <span class="list-item__title">Price:</span>
+                          €20.00
+                        </p>
+                        <p class="item-info__list-item">
+                          <span class="list-item__title">Discount:</span>
+                          10%
+                        </p>
+                        <p class="item-info__list-item">
+                          <span class="list-item__title">Rating:</span>
+                          4.75
+                        </p>
+                        <p class="item-info__list-item">
+                          <span class="list-item__title">Stock:</span>
+                          15
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item-buttons">
+                    <button class="item-button">ADD TO CARD</button>
+                    <button class="item-button">DETAILS</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    `;
+  }
+}
 
-// products tiles (big) render code end
+export default Main;
