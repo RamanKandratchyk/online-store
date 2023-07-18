@@ -343,6 +343,9 @@
             width: 100%;
             height: 83%;
             cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            color: inherit;
 
             .item-title {
               background: rgba(24, 26, 28, 0.8);
@@ -360,7 +363,8 @@
             display: flex;
             justify-content: space-evenly;
 
-            .item-button {
+            .item-button,
+            .item-button-add {
               // background-color: #181a1c;
               background-color: rgba(24, 26, 28, 0.5);
               border: 1px solid $main-color;
@@ -371,6 +375,7 @@
               cursor: pointer;
               color: $text-color;
               transition: transform 0.1s ease-in-out;
+              height: 100%;
 
               &:hover {
                 cursor: pointer;
@@ -384,7 +389,8 @@
               }
             }
 
-            .item-button:first-child {
+            .item-button:first-child,
+            .item-button-add:first-child {
               overflow: hidden;
             }
           }
@@ -423,6 +429,9 @@
             width: 100%;
             height: 83%;
             cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            color: inherit;
 
             .item-title {
               background: rgba(24, 26, 28, 0.8);
@@ -464,7 +473,8 @@
             display: flex;
             justify-content: space-evenly;
 
-            .item-button {
+            .item-button,
+            .item-button-add {
               // background-color: #181a1c;
               background-color: rgba(24, 26, 28, 0.5);
               border: 1px solid $main-color;
@@ -475,6 +485,7 @@
               cursor: pointer;
               color: $text-color;
               transition: transform 0.1s ease-in-out;
+              height: 100%;
 
               &:hover {
                 cursor: pointer;
@@ -489,7 +500,8 @@
               }
             }
 
-            .item-button:first-child {
+            .item-button:first-child,
+            .item-button-add:first-child {
               overflow: hidden;
             }
           }

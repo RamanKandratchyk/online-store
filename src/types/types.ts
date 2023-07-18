@@ -6,6 +6,8 @@ export type CategoryFilterData = [string, string, string, number];
 export type BrandFilterData = [string, string, string, number];
 
 export enum SortKind {
+  titleAsc = 'Sort by title ASC',
+  titleDesc = 'Sort by title DESC',
   priceAsc = 'Sort by price ASC',
   priceDesc = 'Sort by price DESC',
   ratingAsc = 'Sort by rating ASC',

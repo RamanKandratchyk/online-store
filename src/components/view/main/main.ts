@@ -130,7 +130,7 @@ PRODUCTS.forEach((prod) => {
             <div class="item-title">${prod.title}</div>
           </div>
           <div class="item-buttons">
-            <button class="item-button">ADD TO CARD</button>
+            <button class="item-button-add">ADD TO CARD</button>
             <button class="item-button">DETAILS</button>
           </div>
         </div>
@@ -151,7 +151,7 @@ PRODUCTS.forEach((prod) => {
     <div class="item-tile big-tile">
       <div class="product-item">
         <div class="item-wrapper" style="background-image: url(${prod.thumbnail})">
-          <div class="item-text">
+          <a href="#" class="item-text">
             <div class="item-title">${prod.title}</div>
             <div class="item-info">
               <div class="item-info__list">
@@ -181,10 +181,12 @@ PRODUCTS.forEach((prod) => {
                 </p>
               </div>
             </div>
-          </div>
+          </a>
           <div class="item-buttons">
-            <button class="item-button">ADD TO CARD</button>
-            <button class="item-button">DETAILS</button>
+            <button class="item-button-add">ADD TO CARD</button>
+            <a href="#">
+              <button class="item-button">DETAILS</button>
+            </a>
           </div>
         </div>
       </div>
