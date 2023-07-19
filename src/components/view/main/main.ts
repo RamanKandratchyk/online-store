@@ -27,6 +27,8 @@ class Main {
   dots: DotsRender = new DotsRender();
 
   render(): string {
+    document.getElementsByTagName('main')[0].setAttribute('class', 'main');
+
     return `
       <section class="main-container">
         <aside class="filters">

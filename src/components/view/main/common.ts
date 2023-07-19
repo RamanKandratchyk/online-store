@@ -30,3 +30,4 @@ setInterval(changeLogoColours, 1000);
 // change logo colours code end
 
 console.log('STATE =', STATE);
+console.log(document.getElementsByTagName('main')[0]);

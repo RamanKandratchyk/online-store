@@ -82,265 +82,83 @@
       </div>
     </header>
 
-    <!-- main filters and products tiles markup start -->
-    <main class="main">
-      <section class="main-container">
-        <aside class="filters">
-          <div class="filters__buttons">
-            <button id="reset-filters-btn" class="filters__buttons-button">Reset Filters</button>
-            <button id="copy-link-btn" class="filters__buttons-button">Copy Link</button>
+    <!-- product details markup start -->
+    <main class="main-details">
+      <div class="details-container">
+        <div class="link-navigation">
+          <a href="/" class="link-item">STORE</a>
+          <span>>></span>
+          <a href="" class="link-item">DECORATIVE LEAFY PLANTS</a>
+          <span>>></span>
+          <a href="" class="link-item">GREENISH</a>
+          <span>>></span>
+          <a href="" class="link-item">SPATHIPHYLLUM</a>
+        </div>
+        <div class="product-detail">
+          <div class="product-title">
+            <h1>Spathiphyllum</h1>
           </div>
-
-          <div class="filters__filter-container">
-            <h3 class="filters__filter-title">Category</h3>
-            <div class="filters__filter-list">
-              <div class="checkbox-line">
-                <input id="decorative-plants" type="checkbox" class="checkbox-category" />
-                <label class="filters__filter-label" for="decorative-plants">Decorative leafy plants</label>
-                <span class="filters__filter-number">(0/6)</span>
+          <div class="product-data">
+            <div class="product-photos">
+              <div class="slides">
+                <img
+                  src="./assets/images/spathiphyllum/spathiphyllum-thumb.webp"
+                  alt="plant image"
+                  class="slide-item active-img"
+                />
+                <img src="./assets/images/spathiphyllum/spathiphyllum-1.webp" alt="plant image" class="slide-item" />
+                <img src="./assets/images/spathiphyllum/spathiphyllum-2.webp" alt="plant image" class="slide-item" />
+                <img src="./assets/images/spathiphyllum/spathiphyllum-3.webp" alt="plant image" class="slide-item" />
               </div>
-              <div class="checkbox-line">
-                <input id="blooming-flowers" type="checkbox" class="checkbox-category" />
-                <label class="filters__filter-label" for="blooming-flowers">Blooming indoor flowers</label>
-                <span class="filters__filter-number">(0/6)</span>
-              </div>
-              <div class="checkbox-line">
-                <input id="palm-trees" type="checkbox" class="checkbox-category" />
-                <label class="filters__filter-label" for="palm-trees">Palm trees, large plants</label>
-                <span class="filters__filter-number">(0/6)</span>
-              </div>
-              <div class="checkbox-line">
-                <input id="ferns" type="checkbox" class="checkbox-category" />
-                <label class="filters__filter-label" for="ferns">Ferns</label>
-                <span class="filters__filter-number">(0/6)</span>
-              </div>
-              <div class="checkbox-line">
-                <input id="cacti" type="checkbox" class="checkbox-category" />
-                <label class="filters__filter-label" for="cacti">Cacti and succulents</label>
-                <span class="filters__filter-number">(0/6)</span>
-              </div>
-              <div class="checkbox-line">
-                <input id="lianas" type="checkbox" class="checkbox-category" />
-                <label class="filters__filter-label" for="lianas">Lianas</label>
-                <span class="filters__filter-number">(0/6)</span>
+              <div class="grand-photo">
+                <img
+                  src="./assets/images/spathiphyllum/spathiphyllum-thumb.webp"
+                  alt="plant photo"
+                  class="grand-photo__image"
+                />
               </div>
             </div>
-          </div>
-
-          <div class="filters__filter-container">
-            <h3 class="filters__filter-title">Brand</h3>
-            <div class="filters__filter-list">
-              <div class="checkbox-line">
-                <input id="greenish" type="checkbox" class="checkbox-brand" />
-                <label class="filters__filter-label" for="greenish">Greenish</label>
-                <span class="filters__filter-number">(0/6)</span>
+            <div class="product-info">
+              <div class="product-info__item">
+                <h3 class="product-info__item-title">Description:</h3>
+                <p class="product-info__item-text">
+                  With its elegant and timeless appearance, the peace lily (Spathiphyllum) blends into any room. It is
+                  ideal for inexperienced hobby gardeners and comes in a variety of different heights and leaf colours.
+                </p>
               </div>
-              <div class="checkbox-line">
-                <input id="little-green" type="checkbox" class="checkbox-brand" />
-                <label class="filters__filter-label" for="little-green">Little Green</label>
-                <span class="filters__filter-number">(0/6)</span>
+              <div class="product-info__item">
+                <h3 class="product-info__item-title">Discount Percentage:</h3>
+                <p class="product-info__item-text">10%</p>
               </div>
-              <div class="checkbox-line">
-                <input id="garden-world" type="checkbox" class="checkbox-brand" />
-                <label class="filters__filter-label" for="garden-world">Garden World</label>
-                <span class="filters__filter-number">(0/6)</span>
+              <div class="product-info__item">
+                <h3 class="product-info__item-title">Rating:</h3>
+                <p class="product-info__item-text">4.75</p>
               </div>
-              <div class="checkbox-line">
-                <input id="spring-rose" type="checkbox" class="checkbox-brand" />
-                <label class="filters__filter-label" for="spring-rose">Spring Rose Souq</label>
-                <span class="filters__filter-number">(0/6)</span>
+              <div class="product-info__item">
+                <h3 class="product-info__item-title">Stock:</h3>
+                <p class="product-info__item-text">15</p>
               </div>
-              <div class="checkbox-line">
-                <input id="willoway-nurseries" type="checkbox" class="checkbox-brand" />
-                <label class="filters__filter-label" for="willoway-nurseries">Willoway Nurseries</label>
-                <span class="filters__filter-number">(0/6)</span>
+              <div class="product-info__item">
+                <h3 class="product-info__item-title">Brand:</h3>
+                <p class="product-info__item-text">Greenish</p>
               </div>
-              <div class="checkbox-line">
-                <input id="plant-depot" type="checkbox" class="checkbox-brand" />
-                <label class="filters__filter-label" for="plant-depot">Plant Depot</label>
-                <span class="filters__filter-number">(0/6)</span>
+              <div class="product-info__item">
+                <h3 class="product-info__item-title">Category:</h3>
+                <p class="product-info__item-text">Decorative leafy plants</p>
+              </div>
+            </div>
+            <div class="cart-info">
+              <div class="cart-info__cart-buttons">
+                €20.00
+                <button id="product-add-btn" class="cart-button">ADD TO CART</button>
+                <button id="product-buy-btn" class="cart-button">BUY NOW</button>
               </div>
             </div>
           </div>
-
-          <div class="filters__filter-container">
-            <h3 class="filters__filter-title">Price</h3>
-            <div class="filters__filter-min-max">
-              <div id="price-from-text">€10.00</div>
-              <span> ⟷ </span>
-              <div id="price-to-text">€90.00</div>
-            </div>
-            <div class="filters__range">
-              <input type="range" id="price-from" min="0" max="100" value="10" />
-              <input type="range" id="price-to" min="0" max="100" value="90" />
-            </div>
-          </div>
-
-          <div class="filters__filter-container">
-            <h3 class="filters__filter-title">Stock</h3>
-            <div class="filters__filter-min-max">
-              <div id="stock-from-text">10</div>
-              <span> ⟷ </span>
-              <div id="stock-to-text">90</div>
-            </div>
-            <div class="filters__range">
-              <input type="range" id="stock-from" min="0" max="100" value="10" />
-              <input type="range" id="stock-to" min="0" max="100" value="90" />
-            </div>
-          </div>
-        </aside>
-
-        <section class="products">
-          <div class="sort-products">
-            <div class="sort-bar">
-              <select name="sort" class="sort-bar__select">
-                <option value="sort-title" class="sort-name" disabled selected>Sort options:</option>
-                <option value="title-ASC">Sort by title ASC</option>
-                <option value="title-DESC">Sort by title DESC</option>
-                <option value="price-ASC">Sort by price ASC</option>
-                <option value="price-DESC">Sort by price DESC</option>
-                <option value="rating-ASC">Sort by rating ASC</option>
-                <option value="rating-DESC">Sort by rating DESC</option>
-                <option value="discount-ASC">Sort by discount ASC</option>
-                <option value="discount-DESC">Sort by discount DESC</option>
-              </select>
-            </div>
-
-            <div class="sort-products__stat">
-              Found:
-              <span class="stat-text">100</span>
-            </div>
-
-            <div class="sort-products__search-bar">
-              <input type="search" class="search-bar__input search-active" placeholder="Search product" />
-            </div>
-
-            <div class="sort-products__view-mode">
-              <div class="small-v active-mode">
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-              </div>
-              <div class="big-v">
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- small tile -->
-          <!-- <div class="products-items">
-            <div class="item-tile small-tile">
-              <div class="product-item">
-                <div class="item-wrapper">
-                  <div class="item-text">
-                    <div class="item-title">Spathiphyllum</div>
-                  </div>
-                  <div class="item-buttons">
-                    <button class="item-button">ADD TO CARD</button>
-                    <button class="item-button">DETAILS</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- big tile -->
-          <div class="products-items">
-            <span class="no-results">No results</span>
-            <div class="item-tile big-tile">
-              <div class="product-item">
-                <div class="item-wrapper">
-                  <div class="item-text">
-                    <div class="item-title">Spathiphyllum</div>
-                    <div class="item-info">
-                      <div class="item-info__list">
-                        <p class="item-info__list-item">
-                          <span class="list-item__title">Category:</span>
-                          Decorative leafy plants
-                        </p>
-                        <p class="item-info__list-item">
-                          <span class="list-item__title">Brand:</span>
-                          Greenish
-                        </p>
-                        <p class="item-info__list-item">
-                          <span class="list-item__title">Price:</span>
-                          €20.00
-                        </p>
-                        <p class="item-info__list-item">
-                          <span class="list-item__title">Discount:</span>
-                          10%
-                        </p>
-                        <p class="item-info__list-item">
-                          <span class="list-item__title">Rating:</span>
-                          4.75
-                        </p>
-                        <p class="item-info__list-item">
-                          <span class="list-item__title">Stock:</span>
-                          15
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item-buttons">
-                    <button class="item-button">ADD TO CARD</button>
-                    <button class="item-button">DETAILS</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </section>
+        </div>
+      </div>
     </main>
-    <!-- main filters and products tiles markup end -->
+    <!-- product details markup end -->
 
     <footer class="footer">
       <div class="footer-container">

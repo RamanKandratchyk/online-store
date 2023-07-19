@@ -100,10 +100,10 @@ abstract class DualSliderFilter {
       this.setToggleAccessible(toSlider);
       if (from <= to) {
         toSlider.value = `${to}`;
-        toText.innerText = `€${to.toFixed(2)}`;
+        toText.innerText = `${this.sliderData.currencySymbol}${to.toFixed(2)}`;
       } else {
         toSlider.value = `${from}`;
-        toText.innerText = `€${from.toFixed(2)}`;
+        toText.innerText = `${this.sliderData.currencySymbol}${from.toFixed(2)}`;
       }
     };
 
