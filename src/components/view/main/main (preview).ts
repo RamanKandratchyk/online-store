@@ -145,6 +145,7 @@ PRODUCTS.forEach((prod) => {
 
 const productsItems = document.querySelector('.products-items') as HTMLDivElement;
 productsItems.innerHTML = '';
+// productsItems.innerHTML += '<span class="no-results">No results</span>';
 
 PRODUCTS.forEach((prod) => {
   productsItems.innerHTML += `

@@ -7,6 +7,7 @@ import { StockFilter, stockFilterData } from '../filters/stockFilter';
 import SortFormFilter from '../filters/sortFormFilter';
 import SearchFilter from '../filters/searchFilter';
 import ProductCards from './productCards';
+import DotsRender from './dotsRender';
 
 class Main {
   categoryFilter: CategoryFilter = new CategoryFilter(STATE.filters.category);
@@ -23,13 +24,15 @@ class Main {
 
   productCards: ProductCards = new ProductCards();
 
+  dots: DotsRender = new DotsRender();
+
   render(): string {
     return `
       <section class="main-container">
         <aside class="filters">
           <div class="filters__buttons">
-            <button class="filters__buttons-button">Reset Filters</button>
-            <button class="filters__buttons-button">Copy Link</button>
+            <button id="reset-filters-btn" class="filters__buttons-button">Reset Filters</button>
+            <button id="copy-link-btn" class="filters__buttons-button">Copy Link</button>
           </div>
     
           ${this.categoryFilter.render()}
@@ -54,128 +57,47 @@ class Main {
     
             <div class="sort-products__view-mode">
               <div class="small-v active-mode">
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
-                <div class="small-v-dot">.</div>
+                ${this.dots.renderSmallDots()}
               </div>
               <div class="big-v">
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
-                <div class="big-v-dot">.</div>
+                ${this.dots.renderBigDots()}
               </div>
             </div>
           </div>
     
-          <!-- small tile -->
-          <!-- <div class="products-items">
-            <div class="item-tile">
-              <div class="product-item">
-                <div class="item-wrapper">
-                  <div class="item-text">
-                    <div class="item-title">Spathiphyllum</div>
-                  </div>
-                  <div class="item-buttons">
-                    <button class="item-button">ADD TO CARD</button>
-                    <button class="item-button">DETAILS</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
-    
-          <!-- big tile -->
           <div class="products-items">
-            <div class="item-tile big-tile">
-              <div class="product-item">
-                <div class="item-wrapper">
-                  <div class="item-text">
-                    <div class="item-title">Spathiphyllum</div>
-                    <div class="item-info">
-                      <div class="item-info__list">
-                        <p class="item-info__list-item">
-                          <span class="list-item__title">Category:</span>
-                          Decorative leafy plants
-                        </p>
-                        <p class="item-info__list-item">
-                          <span class="list-item__title">Brand:</span>
-                          Greenish
-                        </p>
-                        <p class="item-info__list-item">
-                          <span class="list-item__title">Price:</span>
-                          €20.00
-                        </p>
-                        <p class="item-info__list-item">
-                          <span class="list-item__title">Discount:</span>
-                          10%
-                        </p>
-                        <p class="item-info__list-item">
-                          <span class="list-item__title">Rating:</span>
-                          4.75
-                        </p>
-                        <p class="item-info__list-item">
-                          <span class="list-item__title">Stock:</span>
-                          15
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item-buttons">
-                    <button class="item-button">ADD TO CARD</button>
-                    <button class="item-button">DETAILS</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ${STATE.products.length === 0 ? '<span class="no-results">No results</span>' : ''}
+            ${STATE.sortView === 'bigTile' ? this.productCards.renderBigTiles() : this.productCards.renderSmallTiles()}
           </div>
         </section>
       </section>
     `;
+  }
+
+  setListeners(): void {
+    this.categoryFilter.listener();
+    this.brandFilter.listener();
+    this.priceFilter.listener();
+    this.stockFilter.listener();
+    this.sortFormFilter.listener();
+    this.searchFilter.listener();
+    this.productCards.listener();
+
+    // const resBtn = document.getElementById('reset-filters-btn') as HTMLButtonElement; //! uncomment later
+    // resBtn.onclick = () => {
+    //   app.controller.resetFilters();
+    // };
+
+    // const copyBtn = document.getElementById('copy-link-btn') as HTMLButtonElement;
+    // copyBtn.onclick = (e) => {
+    //   app.controller.copyToClipboard(e);
+    // };
+
+    // const smallTileBtn = document.querySelector('.small-v') as HTMLElement;
+    // smallTileBtn.onclick = () => app.controller.appStateControl('sortView', 'smallTile');
+
+    // const bigTileBtn = document.querySelector('.big-v') as HTMLElement;
+    // bigTileBtn.onclick = () => app.controller.appStateControl('sortView', 'bigTile');
   }
 }
 

@@ -64,7 +64,7 @@ class ProductCards {
             </div>
           </div>
         </div>
-    `;
+      `;
     });
 
     return smallTilesHTML;
@@ -121,16 +121,16 @@ class ProductCards {
             </div>
           </div>
         </div>
-    `;
+      `;
     });
 
     return bigTilesHTML;
   }
 
-  // listener(): void { //! uncomment later
-  //   const btns: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.item-button-add');
-  //   btns.forEach((btn) => (btn.onclick = () => app.controller.appStateControl('cart', btn.value)));
-  // }
+  listener(): void {
+    //   const btns: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.item-button-add'); //! uncomment later
+    //   btns.forEach((btn) => (btn.onclick = () => app.controller.appStateControl('cart', btn.value)));
+  }
 }
 
 export default ProductCards;

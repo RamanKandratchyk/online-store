@@ -318,6 +318,11 @@
       display: flex;
       flex-wrap: wrap;
 
+      .no-results {
+        font-size: 2.5em;
+        margin: 3em auto;
+      }
+
       .item-tile.small-tile {
         position: relative;
         width: 14.6%;
@@ -403,6 +408,11 @@
       padding: 0.5%;
       display: flex;
       flex-wrap: wrap;
+
+      .no-results {
+        font-size: 2.5em;
+        margin: 3em auto;
+      }
 
       .item-tile.big-tile {
         position: relative;
