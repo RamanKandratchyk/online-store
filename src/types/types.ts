@@ -2,6 +2,8 @@ export type RouterMode = 'history' | 'hash';
 
 export type CallbackType = (...arg: string[]) => void;
 
+export type RegExpCallBack<T> = (string: T) => boolean;
+
 export type CategoryFilterData = [string, string, string, number];
 export type BrandFilterData = [string, string, string, number];
 
