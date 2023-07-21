@@ -65,3 +65,12 @@ export interface CartPromocodeState {
   name: string;
   discount: number;
 }
+
+export interface CardsLogoUrls {
+  visa: string;
+  mastercard: string;
+  americanExpress: string;
+  unionPay: string;
+  jcb: string;
+  noLogo: string;
+}
