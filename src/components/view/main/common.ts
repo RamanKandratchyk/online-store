@@ -31,3 +31,4 @@ setInterval(changeLogoColours, 1000);
 
 console.log('STATE =', STATE);
 console.log(document.getElementsByTagName('main')[0]);
+console.log(document.getElementsByName('name-input')[0]);

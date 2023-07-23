@@ -55,6 +55,10 @@
                 transition: all 0.2s ease-in-out;
               }
 
+              .error {
+                border: 1px solid rgb(153, 19, 19);
+              }
+
               .error-msg {
                 color: red;
                 width: 20%;
@@ -109,6 +113,10 @@
                   color: #000;
                   font-weight: 700;
                 }
+
+                .error {
+                  border: 1px solid rgb(153, 19, 19);
+                }
               }
 
               .other-card-data {
@@ -139,6 +147,10 @@
                     font-size: 130%;
                     width: 60%;
                     height: 1rem;
+                  }
+
+                  .error {
+                    border: 1px solid rgb(153, 19, 19);
                   }
                 }
               }

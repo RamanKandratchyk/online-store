@@ -82,7 +82,7 @@
       </div>
     </header>
 
-    <!-- product details markup start -->
+    <!-- cart markup start -->
     <main class="main-cart">
       <div class="cart-container">
         <div class="cart-wrapper">
@@ -328,7 +328,7 @@
               <div class="person-details">
                 <h2 class="person-details__title">Personal details</h2>
                 <div class="form-item person-name">
-                  <input type="text" class="form-item__input" name="name-input" placeholder="Name" />
+                  <input type="text" class="form-item__input error" name="name-input" placeholder="Name" />
                   <div class="error-msg">error</div>
                 </div>
                 <div class="form-item phone-number">
@@ -349,10 +349,10 @@
                 <h2 class="card-details__title">Credit card details</h2>
                 <div class="card-data">
                   <div class="card-number">
-                    <img src="./assets/images/no-logo.webp" alt="no card logo" class="card-logo" />
+                    <img src="./assets/svg/cards-logo/no-logo.svg" alt="no card logo" class="card-logo" />
                     <input
                       type="text"
-                      class="card-number__input"
+                      class="card-number__input error"
                       name="card-number-input"
                       maxlength="19"
                       placeholder="Card number"
@@ -362,17 +362,29 @@
                   <div class="other-card-data">
                     <div class="valid-data">
                       VALID:
-                      <input type="text" class="valid-data__input" maxlength="5" placeholder="Valid Thru" />
+                      <input
+                        type="text"
+                        class="valid-data__input"
+                        name="card-term-input"
+                        maxlength="5"
+                        placeholder="Valid Thru"
+                      />
                     </div>
                     <div class="cvv-data">
                       CVV:
-                      <input type="text" class="valid-data__input" maxlength="3" placeholder="Code" />
+                      <input
+                        type="text"
+                        class="valid-data__input"
+                        name="card-cvv-input"
+                        maxlength="3"
+                        placeholder="Code"
+                      />
                     </div>
                   </div>
                 </div>
-                <div class="card-err">Card number - error</div>
-                <div class="card-err">Card valid thru - error</div>
-                <div class="card-err">Card CVV - error</div>
+                <div id="card-number-error" class="card-err">Card number - error</div>
+                <div id="card-term-error" class="card-err">Card valid thru - error</div>
+                <div id="card-cvv-error" class="card-err">Card CVV - error</div>
               </div>
 
               <button class="card-submit-button" type="submit">CONFIRM</button>
@@ -382,7 +394,7 @@
         <!-- buy modal window markup end -->
       </div>
     </main>
-    <!-- product details markup end -->
+    <!-- cart markup end -->
 
     <footer class="footer">
       <div class="footer-container">

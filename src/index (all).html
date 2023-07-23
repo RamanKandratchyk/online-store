@@ -685,17 +685,36 @@
                 <div class="card-data">
                   <div class="card-number">
                     <img src="./assets/images/no-logo.webp" alt="no card logo" class="card-logo" />
-                    <input type="text" class="card-number__input" name="card-number-input" placeholder="Card number" />
+                    <input
+                      type="text"
+                      class="card-number__input"
+                      name="card-number-input"
+                      maxlength="19"
+                      placeholder="Card number"
+                    />
                   </div>
 
                   <div class="other-card-data">
                     <div class="valid-data">
                       VALID:
-                      <input type="text" class="valid-data__input" placeholder="Valid Thru" />
+                      <input
+                        type="text"
+                        class="valid-data__input"
+                        name="card-term-input"
+                        maxlength="5"
+                        placeholder="Valid Thru"
+                      />
+                    </div>
                     </div>
                     <div class="cvv-data">
                       CVV:
-                      <input type="text" class="valid-data__input" placeholder="Code" />
+                      <input
+                        type="text"
+                        class="valid-data__input"
+                        name="card-cvv-input"
+                        maxlength="3"
+                        placeholder="Code"
+                      />
                     </div>
                   </div>
                 </div>

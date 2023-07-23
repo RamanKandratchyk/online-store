@@ -23,7 +23,7 @@ export function checkCardNumber(cardNumber: string) {
   return template.test(cardNumber);
 }
 
-export function checkCardValid(valid: string) {
+export function checkCardTerm(valid: string) {
   const template = /^(0[1-9]|1[012])\/\d{2}/;
   return template.test(valid);
 }
