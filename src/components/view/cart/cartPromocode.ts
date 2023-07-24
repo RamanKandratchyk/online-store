@@ -21,12 +21,10 @@ class CartPromocode {
     return html;
   }
 
-  renderPrev(data: CartPromocodeState) {
+  renderPreview(data: CartPromocodeState) {
     return `
-      <div class="res-promo">
-        ${data.name} -${data.discount}%
-        <button class="code-drop-button">ADD</button>
-      </div>
+      ${data.name} -${data.discount}%
+      <button class="code-drop-button">ADD</button>
     `;
   }
 }

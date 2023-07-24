@@ -149,6 +149,17 @@ class PaymentPage {
     return res.join('-');
   }
 
+  // closePaymentPage(event: Event, paymentPage: HTMLElement) { //! complete implementation
+  //   const body = document.querySelector('body') as HTMLElement;
+  //   const target = event.target as HTMLElement;
+
+  //   if (target.classList.contains('shadow')) {
+  //     body.classList.remove('shadow');
+  //     paymentPage.classList.remove('shadow');
+  //     paymentPage.innerHTML = '';
+  //   }
+  // }
+
   setListeners(): void {
     const paymentForm = document.querySelector('.modal-form') as HTMLInputElement;
     const paymentFormName = document.querySelector('[name="name-input"]') as HTMLInputElement;
@@ -240,6 +251,15 @@ class PaymentPage {
       this.setCardError(target, paymentValidation.checkCardCVV, true);
 
       if (Number.isNaN(+target.value)) target.value = target.value.slice(0, -1);
+    };
+
+    const paymentPage = document.querySelector('.buy-modal-window') as HTMLDivElement;
+    paymentPage.onmousedown = (event) => {
+      this.closePaymentPage(event, paymentPage);
+    };
+
+    paymentPage.ontouchstart = (event) => {
+      this.closePaymentPage(event, paymentPage);
     };
   }
 }
