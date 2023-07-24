@@ -8,7 +8,7 @@ export function checkPhone(phone: string) {
   return template.test(phone);
 }
 
-export function checkAdress(adress: string) {
+export function checkAddress(adress: string) {
   const template = /^[a-zа-яё]{5,}\s[a-zа-яё]{5,}\s[a-zа-яё]{5,}\D*/gi;
   return template.test(adress.toLowerCase());
 }

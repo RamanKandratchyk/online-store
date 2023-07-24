@@ -153,7 +153,7 @@ class PaymentPage {
     const paymentForm = document.querySelector('.modal-form') as HTMLInputElement;
     const paymentFormName = document.querySelector('[name="name-input"]') as HTMLInputElement;
     const paymentFormPhone = document.querySelector('[name="phone-input"]') as HTMLInputElement;
-    const paymentFormAdress = document.querySelector('[name="address-input"]') as HTMLInputElement;
+    const paymentFormAddress = document.querySelector('[name="address-input"]') as HTMLInputElement;
     const paymentFormEmail = document.querySelector('[name="email-input"]') as HTMLInputElement;
     const paymentFormCardNumber = document.querySelector('[name="card-number-input"]') as HTMLInputElement;
     const paymentFormCardTerm = document.querySelector('[name="card-term-input"]') as HTMLInputElement;
@@ -162,7 +162,7 @@ class PaymentPage {
     const inputData: [HTMLInputElement, RegExpCallBack<string>][] = [
       [paymentFormName, paymentValidation.checkName],
       [paymentFormPhone, paymentValidation.checkPhone],
-      [paymentFormAdress, paymentValidation.checkAdress],
+      [paymentFormAddress, paymentValidation.checkAddress],
       [paymentFormEmail, paymentValidation.checkEmail],
     ];
 
