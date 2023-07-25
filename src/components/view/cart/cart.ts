@@ -19,7 +19,7 @@ class Cart {
       const cartProduct = PRODUCTS.find((prod) => prod.id === cartElement.id) as Product;
       prodListHtml += `
         <div class="cart-product-item-container">
-          <div id="id${cartProduct.id}" class="cart-item">
+          <div id="${cartProduct.id}" class="cart-item">
             <div class="cart-item__number">${STATE.cartProducts.indexOf(cartElement) + 1}</div>
             <div class="cart-item__info">
               <a href="${window.location.search}#/id/${cartProduct.id}/" class="cart-item__href">
@@ -71,9 +71,9 @@ class Cart {
                 </div>
                 <div class="page-numbers">
                   PAGE:
-                  <button class="page-number-button"><</button>
+                  <button class="page-number-button prev"><</button>
                   <span class="cur-page-number">${this.checkItemsPage()}</span>
-                  <button class="page-number-button">></button>
+                  <button class="page-number-button next">></button>
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ class Cart {
     const count = appState.addProdToCart(+id);
     // app.controller.setHeaderCart(); //! uncomment later
     this.cartTotal.changeValue();
-    const cartElementCount = document.querySelector(`#id${id} .number-control__count`) as HTMLSpanElement;
+    const cartElementCount = document.querySelector(`#${id} .number-control__count`) as HTMLSpanElement;
     cartElementCount.innerHTML = count.toString();
     // app.controller.setHeaderCart(); //! uncomment later
 
@@ -119,7 +119,7 @@ class Cart {
     if (count) {
       this.cartTotal.changeValue();
 
-      const cartElementCount = document.querySelector(`#id${id} .number-control__count`) as HTMLSpanElement;
+      const cartElementCount = document.querySelector(`#${id} .number-control__count`) as HTMLSpanElement;
       cartElementCount.innerHTML = count.toString();
 
       if (STATE.cartPromocode.length > 0) {
@@ -157,48 +157,47 @@ class Cart {
   setListeners(): void {
     this.cartTotal.setListeners();
 
-    const cartItems = document.querySelector('.cart-products-items') as HTMLElement;
+    const cartItems = document.querySelectorAll('.cart-item');
+    cartItems.forEach((item) =>
+      item.addEventListener('click', (event) => {
+        const target = event.target as HTMLButtonElement;
 
-    cartItems.onclick = (event) => {
-      const target = event.target as HTMLElement;
+        if (target.name === 'plus') {
+          this.addProduct(item.id);
+          this.cartTotal.changeValue();
+        } else if (target.name === 'minus') {
+          this.removeProduct(item.id);
+          if (STATE.cartProducts.length !== 0) this.cartTotal.changeValue();
+        }
+      })
+    );
 
-      if (target.classList.contains('plus')) {
-        this.addProduct(target.dataset.id as string);
-        this.cartTotal.changeValue();
-      } else if (target.classList.contains('minus')) {
-        this.removeProduct(target.dataset.id as string);
+    const cartLimitInput = document.querySelector('.cart-limit__input') as HTMLInputElement;
 
-        if (STATE.cartProducts.length !== 0) this.cartTotal.changeValue();
-      }
-    };
+    cartLimitInput.oninput = () => {
+      if (+cartLimitInput.value < 1) cartLimitInput.value = '1';
 
-    const cartProductsInput = document.querySelector('.cart__products-input') as HTMLInputElement;
-
-    cartProductsInput.oninput = () => {
-      if (+cartProductsInput.value < 1) cartProductsInput.value = '1';
-
-      app.controller.appStateControl('items', cartProductsInput.value);
-      const chank = this.cartPagination.getChank(STATE.cartItems, STATE.cartPage);
-      this.main.innerHTML = this.render(chank);
+      // app.controller.appStateControl('items', cartLimitInput.value); //! uncomment later
+      const pageList = this.cartPagination.getPageList(STATE.cartItems, STATE.cartPage);
+      const main = document.getElementsByTagName('main')[0];
+      main.innerHTML = this.render(pageList);
       this.cartTotal.changeValue();
       this.setListeners();
     };
 
     const prev = document.querySelector('.prev') as HTMLElement;
-
     prev.onclick = () => {
       if (STATE.cartPage > 1) {
-        STATE.cartPage--;
-        this.renderChank();
+        STATE.cartPage -= 1;
+        this.renderPageList();
       }
     };
 
     const next = document.querySelector('.next') as HTMLElement;
-
     next.onclick = () => {
       if (STATE.cartPage < STATE.cartProducts.length / STATE.cartItems) {
-        STATE.cartPage++;
-        this.renderChank();
+        STATE.cartPage += 1;
+        this.renderPageList();
       }
     };
   }

@@ -31,20 +31,17 @@ setInterval(changeLogoColours, 1000);
 
 console.log('STATE =', STATE);
 
-const cartItem = document.querySelector('.cart-item') as HTMLDivElement;
-cartItem.addEventListener(
-  'click',
-  (e) => {
-    if (e.currentTarget === cartItem) {
-      console.log('Parent .cart-item CLICK');
-      console.log(e);
-    }
-  },
-  true
+const cartItems = document.querySelectorAll('.cart-item');
+cartItems.forEach((item) =>
+  item.addEventListener('click', (event) => {
+    const target = event.target as HTMLButtonElement;
+
+    console.log(target);
+    console.log(item.id);
+    console.log(target.name);
+  })
 );
+
 const btn = document.getElementsByName('plus')[0] as HTMLButtonElement;
 console.log(btn);
 console.log(btn.name);
-btn.addEventListener('click', (e) => {
-  console.log(e);
-});
