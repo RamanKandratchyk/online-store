@@ -149,16 +149,11 @@ class PaymentPage {
     return res.join('-');
   }
 
-  // closePaymentPage(event: Event, paymentPage: HTMLElement) { //! complete implementation
-  //   const body = document.querySelector('body') as HTMLElement;
-  //   const target = event.target as HTMLElement;
-
-  //   if (target.classList.contains('shadow')) {
-  //     body.classList.remove('shadow');
-  //     paymentPage.classList.remove('shadow');
-  //     paymentPage.innerHTML = '';
-  //   }
-  // }
+  closePaymentPage(event: Event, paymentPage: HTMLElement) {
+    const modalContent = document.querySelector('.modal-content') as HTMLDivElement;
+    const withinModalContent = event.composedPath().includes(modalContent);
+    if (!withinModalContent) paymentPage.remove();
+  }
 
   setListeners(): void {
     const paymentForm = document.querySelector('.modal-form') as HTMLInputElement;

@@ -21,7 +21,7 @@ class CartTotal {
         <span class="total-value__title">Total: </span>
         €${appState.hasPromocode() ? appState.getSumPrice().toFixed(2) : ''}
       </div>
-      <div class="total-value">
+      <div class="total-value new-price">
         <span class="total-value__title">Total: </span>
         €${appState.hasPromocode() ? appState.getSumPriceWithPromo().toFixed(2) : appState.getSumPrice().toFixed(2)}
       </div>

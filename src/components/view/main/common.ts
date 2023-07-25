@@ -30,5 +30,21 @@ setInterval(changeLogoColours, 1000);
 // change logo colours code end
 
 console.log('STATE =', STATE);
-console.log(document.getElementsByTagName('main')[0]);
-console.log(document.getElementsByName('name-input')[0]);
+
+const cartItem = document.querySelector('.cart-item') as HTMLDivElement;
+cartItem.addEventListener(
+  'click',
+  (e) => {
+    if (e.currentTarget === cartItem) {
+      console.log('Parent .cart-item CLICK');
+      console.log(e);
+    }
+  },
+  true
+);
+const btn = document.getElementsByName('plus')[0] as HTMLButtonElement;
+console.log(btn);
+console.log(btn.name);
+btn.addEventListener('click', (e) => {
+  console.log(e);
+});
