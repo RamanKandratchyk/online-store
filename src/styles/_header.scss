@@ -40,6 +40,7 @@
       flex-direction: column;
       justify-content: center;
       transition: all 0.2s ease-in-out;
+      text-decoration: none;
 
       .logo-title {
         font-family: 'Rum Raisin';
@@ -56,6 +57,10 @@
 
       &:hover {
         transform: scale(1.03);
+      }
+
+      &:active {
+        color: inherit;
       }
     }
   }
@@ -91,6 +96,10 @@
 
       &:hover {
         transform: scale(1.1);
+      }
+
+      &:active {
+        color: inherit;
       }
     }
 
