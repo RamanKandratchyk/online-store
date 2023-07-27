@@ -1,4 +1,5 @@
 // import { app } from '../../index';
+import { CartPromocodeState, CartState } from '../../types/interfaces';
 import * as appState from '../state/appState';
 import { STATE, DEFAULT_STATE } from '../state/state';
 
@@ -14,7 +15,7 @@ class Controller {
       this.setSearchParams(key, updValue);
     }
     if (isRerender) {
-      app.router.resolveRoute();
+      // app.router.resolveRoute(); //! uncomment later
     }
   }
 
@@ -30,7 +31,7 @@ class Controller {
     STATE.filters = structuredClone(DEFAULT_STATE.filters);
     STATE.products = appState.productFilter();
     this.resetFilterParams();
-    app.router.resolveRoute();
+    // app.router.resolveRoute(); //! uncomment later
   }
 
   setLinkHref(): void {
@@ -73,6 +74,31 @@ class Controller {
         }, milliseconds);
       })
       .catch((err: Error) => console.log(err.message));
+  }
+
+  setHeaderCart(): void {
+    (document.querySelector('.header__total-price') as HTMLElement).innerHTML =
+      STATE.cartPromocode.length > 0
+        ? `<span class="header__cart-total">Cart total:</span> €${appState.getSumPriceWithPromo()}`
+        : `<span class="header__cart-total">Cart total:</span> €${appState.getSumPrice()}`;
+    (document.querySelector('.header__cart-number') as HTMLDivElement).innerText = `${appState.getAmountCart()}`;
+  }
+
+  setLocalStorage(): void {
+    localStorage.setItem('cartProducts', JSON.stringify(STATE.cartProducts));
+    localStorage.setItem('cartPromocode', JSON.stringify(STATE.cartPromocode));
+  }
+
+  getLocalStorage(): void {
+    if (localStorage.getItem('cartProducts')) {
+      const cartProducts: string | null = localStorage.getItem('cartProducts');
+      if (cartProducts) STATE.cartProducts = JSON.parse(cartProducts) as CartState[];
+    }
+    if (localStorage.getItem('cartPromocode')) {
+      const cartPromocode: string | null = localStorage.getItem('cartPromocode');
+      if (cartPromocode) STATE.cartPromocode = JSON.parse(cartPromocode) as CartPromocodeState[];
+    }
+    this.setHeaderCart();
   }
 }
 
