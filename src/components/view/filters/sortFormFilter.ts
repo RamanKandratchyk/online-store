@@ -1,4 +1,4 @@
-// import { app } from '../../../index';
+import app from '../../../index';
 import { SortKind } from '../../../types/types';
 import { STATE, DEFAULT_STATE } from '../../state/state';
 
@@ -35,8 +35,8 @@ class SortFormFilter {
   }
 
   listener(): void {
-    // const selectEl = document.querySelector('.sort-bar__select') as HTMLSelectElement; //! uncomment later
-    // selectEl.onchange = () => app.controller.appStateControl('sort', selectEl.value);
+    const selectEl = document.querySelector('.sort-bar__select') as HTMLSelectElement;
+    selectEl.onchange = () => app.controller.appStateControl('sort', selectEl.value);
   }
 }
 

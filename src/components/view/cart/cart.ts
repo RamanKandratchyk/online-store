@@ -1,4 +1,4 @@
-// import { app } from '../../../index';
+import app from '../../../index';
 import PRODUCTS from '../../../data/products';
 import { Product, CartState } from '../../../types/interfaces';
 import CartPagination from './cartPagination';
@@ -97,11 +97,11 @@ class Cart {
 
   addProduct(id: string): void {
     const count = appState.addProdToCart(+id);
-    // app.controller.setHeaderCart(); //! uncomment later
+    app.controller.setHeaderCart();
     this.cartTotal.changeValue();
     const cartElementCount = document.querySelector(`#${id} .number-control__count`) as HTMLSpanElement;
     cartElementCount.innerHTML = count.toString();
-    // app.controller.setHeaderCart(); //! uncomment later
+    app.controller.setHeaderCart();
 
     if (STATE.cartPromocode.length > 0) {
       const newPriceDiv = document.querySelector('.new-price') as HTMLDivElement;
@@ -114,7 +114,7 @@ class Cart {
 
   removeProduct(id: string): void {
     const count = appState.removeProdFromCart(+id);
-    // app.controller.setHeaderCart(); //! uncomment later
+    app.controller.setHeaderCart();
 
     if (count) {
       this.cartTotal.changeValue();
@@ -141,13 +141,13 @@ class Cart {
   checkItemsPage(): number {
     if (STATE.cartPage > Math.ceil(STATE.cartProducts.length / STATE.cartItems)) {
       STATE.cartPage = 1;
-      // app.controller.setSearchParams('page', `${STATE.cartPage}`); //! uncomment later
+      app.controller.setSearchParams('page', `${STATE.cartPage}`);
     }
     return STATE.cartPage;
   }
 
   renderPageList(): void {
-    // app.controller.setSearchParams('page', `${STATE.cartPage}`); //! uncomment later
+    app.controller.setSearchParams('page', `${STATE.cartPage}`);
     const pageList = this.cartPagination.getPageList(STATE.cartItems, STATE.cartPage);
     const main = document.getElementsByTagName('main')[0];
     main.innerHTML = this.render(pageList);
@@ -177,7 +177,7 @@ class Cart {
     cartLimitInput.oninput = () => {
       if (+cartLimitInput.value < 1) cartLimitInput.value = '1';
 
-      // app.controller.appStateControl('items', cartLimitInput.value); //! uncomment later
+      app.controller.appStateControl('items', cartLimitInput.value);
       const pageList = this.cartPagination.getPageList(STATE.cartItems, STATE.cartPage);
       const main = document.getElementsByTagName('main')[0];
       main.innerHTML = this.render(pageList);

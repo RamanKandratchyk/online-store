@@ -1,4 +1,4 @@
-// import { app } from '../../../index';
+import app from '../../../index';
 import { STATE } from '../../state/state';
 import CategoryFilter from '../filters/categoryFilter';
 import BrandFilter from '../filters/brandFilter';
@@ -85,21 +85,21 @@ class Main {
     this.searchFilter.listener();
     this.productCards.listener();
 
-    // const resBtn = document.getElementById('reset-filters-btn') as HTMLButtonElement; //! uncomment later
-    // resBtn.onclick = () => {
-    //   app.controller.resetFilters();
-    // };
+    const resBtn = document.getElementById('reset-filters-btn') as HTMLButtonElement;
+    resBtn.onclick = () => {
+      app.controller.resetFilters();
+    };
 
-    // const copyBtn = document.getElementById('copy-link-btn') as HTMLButtonElement;
-    // copyBtn.onclick = (e) => {
-    //   app.controller.copyToClipboard(e);
-    // };
+    const copyBtn = document.getElementById('copy-link-btn') as HTMLButtonElement;
+    copyBtn.onclick = (e) => {
+      app.controller.copyToClipboard(e);
+    };
 
-    // const smallTileBtn = document.querySelector('.small-v') as HTMLElement;
-    // smallTileBtn.onclick = () => app.controller.appStateControl('sortView', 'smallTile');
+    const smallTileBtn = document.querySelector('.small-v') as HTMLElement;
+    smallTileBtn.onclick = () => app.controller.appStateControl('sortView', 'smallTile');
 
-    // const bigTileBtn = document.querySelector('.big-v') as HTMLElement;
-    // bigTileBtn.onclick = () => app.controller.appStateControl('sortView', 'bigTile');
+    const bigTileBtn = document.querySelector('.big-v') as HTMLElement;
+    bigTileBtn.onclick = () => app.controller.appStateControl('sortView', 'bigTile');
   }
 }
 

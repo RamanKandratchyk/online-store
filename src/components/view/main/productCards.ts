@@ -1,4 +1,4 @@
-// import { app } from '../../../index';
+import app from '../../../index';
 import { Product } from '../../../types/interfaces';
 import { STATE, DEFAULT_STATE } from '../../state/state';
 import { SortKind } from '../../../types/types';
@@ -128,8 +128,8 @@ class ProductCards {
   }
 
   listener(): void {
-    //   const btns: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.item-button-add'); //! uncomment later
-    //   btns.forEach((btn) => (btn.onclick = () => app.controller.appStateControl('cart', btn.value)));
+    const btns: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.item-button-add');
+    btns.forEach((btn) => btn.addEventListener('click', () => app.controller.appStateControl('cart', btn.value)));
   }
 }
 

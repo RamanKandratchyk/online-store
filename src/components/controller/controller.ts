@@ -1,4 +1,4 @@
-// import { app } from '../../index';
+import app from '../../index';
 import { CartPromocodeState, CartState } from '../../types/interfaces';
 import * as appState from '../state/appState';
 import { STATE, DEFAULT_STATE } from '../state/state';
@@ -15,7 +15,7 @@ class Controller {
       this.setSearchParams(key, updValue);
     }
     if (isRerender) {
-      // app.router.resolveRoute(); //! uncomment later
+      app.router.resolveRoute();
     }
   }
 
@@ -31,7 +31,7 @@ class Controller {
     STATE.filters = structuredClone(DEFAULT_STATE.filters);
     STATE.products = appState.productFilter();
     this.resetFilterParams();
-    // app.router.resolveRoute(); //! uncomment later
+    app.router.resolveRoute();
   }
 
   setLinkHref(): void {

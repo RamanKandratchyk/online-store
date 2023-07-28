@@ -1,4 +1,4 @@
-// import { app } from '../../../index';
+import app from '../../../index';
 import * as appState from '../../state/appState';
 import promocodesData from '../../../data/promocodes';
 import CartPromocode from './cartPromocode';
@@ -41,7 +41,7 @@ class CartTotal {
     const cartTotalHandle = cartTotal;
     cartTotalHandle.innerHTML = this.render();
     this.setListeners();
-    // app.controller.setHeaderCart(); //! uncomment later
+    app.controller.setHeaderCart();
   }
 
   changeValue(): void {

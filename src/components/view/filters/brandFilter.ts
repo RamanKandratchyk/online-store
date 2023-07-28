@@ -1,4 +1,4 @@
-// import { app } from '../../../index';
+import app from '../../../index';
 import { BrandFilterData } from '../../../types/types';
 import { STATE } from '../../state/state';
 import CheckboxFilter from './checkboxFilter';
@@ -30,8 +30,8 @@ class BrandFilter extends CheckboxFilter {
   }
 
   listener(): void {
-    // const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('.checkbox-brand');
-    // inputs.forEach((el) => (el.oninput = () => app.controller.appStateControl('brand', el.value)));
+    const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('.checkbox-brand');
+    inputs.forEach((el) => el.addEventListener('input', () => app.controller.appStateControl('brand', el.value)));
   }
 }
 

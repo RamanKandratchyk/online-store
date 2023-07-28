@@ -1,4 +1,4 @@
-// import { app } from '../../index';
+import app from '../../index';
 import { Route } from '../../types/interfaces';
 import { CallbackType, RouterMode } from '../../types/types';
 
@@ -70,7 +70,7 @@ class Router {
 
   resolveRoute = (): void => {
     if (window.location.pathname !== '/') {
-      // app.view.render404page(); //! uncomment later
+      app.view.page404.render();
       return;
     }
 
@@ -83,7 +83,7 @@ class Router {
         route.cb.apply({}, match);
         return match;
       }
-      // app.view.render404page(); //! uncomment later
+      app.view.page404.render();
 
       return false;
     });

@@ -1,4 +1,4 @@
-// import { app } from '../../../index';
+import app from '../../../index';
 import { STATE, DEFAULT_STATE } from '../../state/state';
 
 class SearchFilter {
@@ -25,7 +25,7 @@ class SearchFilter {
       el.focus();
       el.selectionStart = el.value.length;
     }
-    // el.oninput = () => app.controller.appStateControl('search', el.value); //! uncomment later
+    el.oninput = () => app.controller.appStateControl('search', el.value);
   }
 }
 

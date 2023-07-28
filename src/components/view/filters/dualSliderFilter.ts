@@ -1,4 +1,4 @@
-// import { app } from '../../../index';
+import app from '../../../index';
 import { Product, DualSlider } from '../../../types/interfaces';
 import { DEFAULT_STATE } from '../../state/state';
 
@@ -90,9 +90,9 @@ abstract class DualSliderFilter {
       }
     };
 
-    // fromSlider.onchange = () => { //! uncomment later
-    //   this.setSliderState(fromText, toText);
-    // };
+    fromSlider.onchange = () => {
+      this.setSliderState(fromText, toText);
+    };
 
     toSlider.oninput = () => {
       const [from, to] = this.getParsed(fromSlider, toSlider);
@@ -107,15 +107,15 @@ abstract class DualSliderFilter {
       }
     };
 
-    // toSlider.onchange = () => { //! uncomment later
-    //   this.setSliderState(fromText, toText);
-    // };
+    toSlider.onchange = () => {
+      this.setSliderState(fromText, toText);
+    };
   }
 
-  // setSliderState(fromText: HTMLElement, toText: HTMLElement): void { //! uncomment later
-  //   app.controller.appStateControl(this.sliderData.toInputId, toText.innerText);
-  //   app.controller.appStateControl(this.sliderData.fromInputId, fromText.innerText);
-  // }
+  setSliderState(fromText: HTMLElement, toText: HTMLElement): void {
+    app.controller.appStateControl(this.sliderData.toInputId, toText.innerText);
+    app.controller.appStateControl(this.sliderData.fromInputId, fromText.innerText);
+  }
 }
 
 export default DualSliderFilter;

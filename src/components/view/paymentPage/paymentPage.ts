@@ -1,4 +1,4 @@
-// import { app } from '../../../index';
+import app from '../../../index';
 import { STATE } from '../../state/state';
 import * as paymentValidation from './paymentValidation';
 import { RegExpCallBack } from '../../../types/types';
@@ -184,10 +184,10 @@ class PaymentPage {
       this.setCardError(paymentFormCardCVV, paymentValidation.checkCardCVV);
 
       if (this.isFormValid) {
-        // const mainCart = document.querySelector('.main-cart') as HTMLElement; //!uncomment later
+        const mainCart = document.querySelector('.main-cart') as HTMLElement;
         STATE.cartProducts = [];
-        // mainCart.innerHTML = app.view.cart.render(); //!uncomment later
-        // app.controller.setHeaderCart(); //!uncomment later
+        mainCart.innerHTML = app.view.cart.render();
+        app.controller.setHeaderCart();
         window.location.href = '#/';
       }
     };

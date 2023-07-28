@@ -1,4 +1,4 @@
-// import { app } from '../../../index';
+import app from '../../../index';
 import PRODUCTS from '../../../data/products';
 import { Product } from '../../../types/interfaces';
 import { STATE } from '../../state/state';
@@ -105,17 +105,17 @@ class ProductDetails {
 
     const addBtn = document.getElementById('product-add-btn') as HTMLButtonElement;
     addBtn.onclick = () => {
-      // app.controller.appStateControl('cart', addBtn.value, false); //!uncomment later
+      app.controller.appStateControl('cart', addBtn.value, false);
       addBtn.textContent = this.getCartButtonName();
     };
 
     const buyBtn = document.querySelector('product-buy-btn') as HTMLButtonElement;
     buyBtn.onclick = () => {
-      // if (!STATE.cartProducts.find((item) => item.id === this.product.id)) //!uncomment later
-      // app.controller.appStateControl('cart', addBtn.value, false);
-      // window.history.replaceState(null, '', `${window.location.search}#/cart/`);
-      // app.router.resolveRoute();
-      // app.view.cart.cartTotal.openPopup();
+      if (!STATE.cartProducts.find((item) => item.id === this.product.id))
+        app.controller.appStateControl('cart', addBtn.value, false);
+      window.history.replaceState(null, '', `${window.location.search}#/cart/`);
+      app.router.resolveRoute();
+      app.view.cart.cartTotal.openPaymentPage();
     };
   }
 }
