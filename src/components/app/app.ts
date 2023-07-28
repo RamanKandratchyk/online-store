@@ -30,7 +30,7 @@ class App {
       this.controller.setLocalStorage();
     };
 
-    const main = document.querySelector('.main') as HTMLElement;
+    const main = document.getElementsByTagName('main')[0];
 
     this.router
       .add(/^$/, () => {

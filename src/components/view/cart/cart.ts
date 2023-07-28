@@ -90,7 +90,7 @@ class Cart {
     `;
 
     const main = document.getElementsByTagName('main')[0];
-    main.setAttribute('class', 'cart-main');
+    main.setAttribute('class', 'main-cart');
 
     return STATE.cartProducts.length === 0 ? `<p class="cart-empty">Cart is Empty</p>` : cartHtml;
   }
