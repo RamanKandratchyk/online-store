@@ -58,10 +58,10 @@ class Main {
             ${this.searchFilter.render()}
     
             <div class="sort-products__view-mode">
-              <div class="small-v active-mode">
+              <div class="small-v ${STATE.sortView === 'smallTile' ? 'active-mode' : ''}">
                 ${this.dots.renderSmallDots()}
               </div>
-              <div class="big-v">
+              <div class="big-v ${STATE.sortView === 'bigTile' ? 'active-mode' : ''}">
                 ${this.dots.renderBigDots()}
               </div>
             </div>

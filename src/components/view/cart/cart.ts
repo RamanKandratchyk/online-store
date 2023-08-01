@@ -154,6 +154,17 @@ class Cart {
     this.setListeners();
   }
 
+  cartLimitInputFunc(input: HTMLInputElement): void {
+    const inputHandle = input;
+    if (+input.value < 1) inputHandle.value = '1';
+    app.controller.appStateControl('items', inputHandle.value);
+    const pageList = this.cartPagination.getPageList(STATE.cartItems, STATE.cartPage);
+    const main = document.getElementsByTagName('main')[0];
+    main.innerHTML = this.render(pageList);
+    this.cartTotal.changeValue();
+    this.setListeners();
+  }
+
   setListeners(): void {
     this.cartTotal.setListeners();
 
@@ -172,18 +183,38 @@ class Cart {
       })
     );
 
+    const cartLimit = document.querySelector('.cart-limit') as HTMLDivElement;
     const cartLimitInput = document.querySelector('.cart-limit__input') as HTMLInputElement;
 
-    cartLimitInput.oninput = () => {
-      if (+cartLimitInput.value < 1) cartLimitInput.value = '1';
+    cartLimitInput.oninput = () => this.cartLimitInputFunc(cartLimitInput);
 
-      app.controller.appStateControl('items', cartLimitInput.value);
-      const pageList = this.cartPagination.getPageList(STATE.cartItems, STATE.cartPage);
-      const main = document.getElementsByTagName('main')[0];
-      main.innerHTML = this.render(pageList);
-      this.cartTotal.changeValue();
-      this.setListeners();
+    // cartLimitInput.oninput = () => {
+    //   if (+cartLimitInput.value < 1) cartLimitInput.value = '1';
+    //   app.controller.appStateControl('items', cartLimitInput.value);
+    //   const pageList = this.cartPagination.getPageList(STATE.cartItems, STATE.cartPage);
+    //   const main = document.getElementsByTagName('main')[0];
+    //   main.innerHTML = this.render(pageList);
+    //   this.cartTotal.changeValue();
+    //   this.setListeners();
+    // };
+
+    cartLimit.onclick = (event) => {
+      if (event.target !== cartLimitInput) {
+        this.cartLimitInputFunc(cartLimitInput);
+      }
     };
+
+    // cartLimit.addEventListener('click', (event) => {
+    //   if (event.target !== cartLimitInput) {
+    //     if (+cartLimitInput.value < 1) cartLimitInput.value = '1';
+    //     app.controller.appStateControl('items', cartLimitInput.value);
+    //     const pageList = this.cartPagination.getPageList(STATE.cartItems, STATE.cartPage);
+    //     const main = document.getElementsByTagName('main')[0];
+    //     main.innerHTML = this.render(pageList);
+    //     this.cartTotal.changeValue();
+    //     this.setListeners();
+    //   }
+    // });
 
     const prev = document.querySelector('.prev') as HTMLElement;
     prev.onclick = () => {
