@@ -368,6 +368,10 @@
             display: flex;
             justify-content: space-evenly;
 
+            .details-btn-href {
+              display: contents;
+            }
+
             .item-button,
             .item-button-add {
               // background-color: #181a1c;

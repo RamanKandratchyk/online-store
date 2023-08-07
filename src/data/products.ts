@@ -240,7 +240,7 @@ const PRODUCTS: Product[] = [
     stock: 3,
     brand: 'Greenish',
     latinName: 'Dracaena reflexa',
-    category: 'Palm trees and large houseplants',
+    category: 'Palm trees, large plants',
     thumbnail: '../assets/images/dracaena/dracaena-thumb.webp',
     images: [
       '../assets/images/dracaena/dracaena-1.webp',
@@ -259,7 +259,7 @@ const PRODUCTS: Product[] = [
     stock: 6,
     brand: 'Little Green',
     latinName: 'Ficus elastica "Robusta"',
-    category: 'Palm trees and large houseplants',
+    category: 'Palm trees, large plants',
     thumbnail: '../assets/images/ficus/ficus-thumb.webp',
     images: [
       '../assets/images/ficus/ficus-1.webp',
@@ -278,7 +278,7 @@ const PRODUCTS: Product[] = [
     stock: 2,
     brand: 'Garden World',
     latinName: 'Howea forsteriana',
-    category: 'Palm trees and large houseplants',
+    category: 'Palm trees, large plants',
     thumbnail: '../assets/images/howea/howea-thumb.webp',
     images: [
       '../assets/images/howea/howea-1.webp',
@@ -297,7 +297,7 @@ const PRODUCTS: Product[] = [
     stock: 5,
     brand: 'Spring Rose Souq',
     latinName: 'Strelitzia nicolai',
-    category: 'Palm trees and large houseplants',
+    category: 'Palm trees, large plants',
     thumbnail: '../assets/images/strelitzia/strelitzia-thumb.webp',
     images: [
       '../assets/images/strelitzia/strelitzia-1.webp',
@@ -316,7 +316,7 @@ const PRODUCTS: Product[] = [
     stock: 10,
     brand: 'Willoway Nurseries',
     latinName: 'Pachira aquatica',
-    category: 'Palm trees and large houseplants',
+    category: 'Palm trees, large plants',
     thumbnail: '../assets/images/pachira/pachira-thumb.webp',
     images: [
       '../assets/images/pachira/pachira-1.webp',
@@ -335,7 +335,7 @@ const PRODUCTS: Product[] = [
     stock: 6,
     brand: 'Plant Depot',
     latinName: 'Yucca gigantea',
-    category: 'Palm trees and large houseplants',
+    category: 'Palm trees, large plants',
     thumbnail: '../assets/images/yucca/yucca-thumb.webp',
     images: [
       '../assets/images/yucca/yucca-1.webp',

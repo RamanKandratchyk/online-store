@@ -31,7 +31,7 @@ class CategoryFilter extends CheckboxFilter {
 
   listener(): void {
     const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('.checkbox-category');
-    inputs.forEach((el) => el.addEventListener('input', () => app.controller.appStateControl('category', el.value)));
+    inputs.forEach((el) => el.addEventListener('input', () => app.controller.appStateControl('category', el.id)));
   }
 }
 

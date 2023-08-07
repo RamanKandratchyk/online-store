@@ -57,7 +57,7 @@ class ProductCards {
                 <button class="item-button-add" value="${prod.id}">
                 ${STATE.cartProducts.find((item) => item.id === prod.id) ? 'REMOVE' : 'ADD TO CART'}
                 </button>
-                <a href="${window.location.search}#/id/${prod.id}/">
+                <a class="details-btn-href" href="${window.location.search}#/id/${prod.id}/">
                   <button class="item-button">DETAILS</button>
                 </a>
               </div>

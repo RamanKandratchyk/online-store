@@ -126,12 +126,16 @@ PRODUCTS.forEach((prod) => {
     <div class="item-tile small-tile">
       <div class="product-item">
         <div class="item-wrapper" style="background-image: url(${prod.thumbnail})">
-          <div class="item-text">
+          <a href="${window.location.search}#/id/${prod.id}/" class="item-text">
             <div class="item-title">${prod.title}</div>
-          </div>
+          </a>
           <div class="item-buttons">
-            <button class="item-button-add">ADD TO CARD</button>
-            <button class="item-button">DETAILS</button>
+            <button class="item-button-add" value="${prod.id}">
+            ${STATE.cartProducts.find((item) => item.id === prod.id) ? 'REMOVE' : 'ADD TO CART'}
+            </button>
+            <a class="details-btn-href" href="${window.location.search}#/id/${prod.id}/">
+              <button class="item-button">DETAILS</button>
+            </a>
           </div>
         </div>
       </div>

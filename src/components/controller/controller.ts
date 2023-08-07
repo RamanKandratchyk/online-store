@@ -79,8 +79,8 @@ class Controller {
   setHeaderCart(): void {
     (document.querySelector('.header__total-price') as HTMLElement).innerHTML =
       STATE.cartPromocode.length > 0
-        ? `<span class="header__cart-total">Cart total:</span> €${appState.getSumPriceWithPromo()}`
-        : `<span class="header__cart-total">Cart total:</span> €${appState.getSumPrice()}`;
+        ? `<span class="header__cart-total">Cart total:</span> €${appState.getSumPriceWithPromo().toFixed(2)}`
+        : `<span class="header__cart-total">Cart total:</span> €${appState.getSumPrice().toFixed(2)}`;
     (document.querySelector('.header__cart-number') as HTMLDivElement).innerText = `${appState.getAmountCart()}`;
   }
 
