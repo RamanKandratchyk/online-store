@@ -31,7 +31,7 @@ class BrandFilter extends CheckboxFilter {
 
   listener(): void {
     const inputs: NodeListOf<HTMLInputElement> = document.querySelectorAll('.checkbox-brand');
-    inputs.forEach((el) => el.addEventListener('input', () => app.controller.appStateControl('brand', el.value)));
+    inputs.forEach((el) => el.addEventListener('input', () => app.controller.appStateControl('brand', el.id)));
   }
 }
 

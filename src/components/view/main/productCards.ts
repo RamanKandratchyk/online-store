@@ -85,11 +85,11 @@ class ProductCards {
                   <div class="item-info__list">
                     <p class="item-info__list-item">
                       <span class="list-item__title">Category:</span>
-                      ${prod.category}
+                      ${prod.categoryName}
                     </p>
                     <p class="item-info__list-item">
                       <span class="list-item__title">Brand:</span>
-                      ${prod.brand}
+                      ${prod.brandName}
                     </p>
                     <p class="item-info__list-item">
                       <span class="list-item__title">Price:</span>

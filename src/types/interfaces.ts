@@ -14,8 +14,10 @@ export interface Product {
   rating: number;
   stock: number;
   brand: string;
+  brandName: string;
   latinName: string;
   category: string;
+  categoryName: string;
   thumbnail: string;
   images: string[];
 }

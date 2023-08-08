@@ -12,7 +12,7 @@ export const stockFilterData: DualSlider = {
   fromInputId: 'stock-from',
   toInputId: 'stock-to',
   // correctionNumber: 4,
-  currencySymbol: '€',
+  currencySymbol: '',
 };
 
 export class StockFilter extends DualSliderFilter {

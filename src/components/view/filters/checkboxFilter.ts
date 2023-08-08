@@ -22,13 +22,13 @@ abstract class CheckboxFilter {
 
   abstract getFindCount(value: string): number;
 
-  protected createCategory(category: string, id: string, categoryTitle: string, count: number): string {
+  protected createCategory(category: string, categoryId: string, categoryTitle: string, count: number): string {
     return `
     <div class="checkbox-line">
-      <input id="${id}" type="checkbox" ${this.isChecked(id) ? 'checked' : ''}
-      ${this.getFindCount(categoryTitle) === 0 ? ' disabled' : ''} class="checkbox-${category}" />
-      <label class="filters__filter-label" for="${id}">${categoryTitle}</label>
-      <span class="filters__filter-number">(${this.getFindCount(categoryTitle)}/${count})</span>
+      <input id="${categoryId}" type="checkbox" ${this.isChecked(categoryId) ? 'checked' : ''}
+      ${this.getFindCount(categoryId) === 0 ? ' disabled' : ''} class="checkbox-${category}" />
+      <label class="filters__filter-label" for="${categoryId}">${categoryTitle}</label>
+      <span class="filters__filter-number">(${this.getFindCount(categoryId)}/${count})</span>
       </div>
     `;
   }
