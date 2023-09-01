@@ -52,8 +52,9 @@ export interface DualSlider {
   toTextId: string;
   fromInputId: string;
   toInputId: string;
-  // correctionNumber: number;
+  rangePadding: number;
   currencySymbol: string;
+  toFixedNumber: number;
 }
 
 export interface CartState {

@@ -93,6 +93,7 @@ export function addPromocode(promocode: CartPromocodeState) {
 }
 
 export function setCurrentState(key: string, value: string): void {
+  let valueArr: RegExpMatchArray | null;
   switch (key) {
     case 'category':
       setStateAtArr(STATE.filters.category, value);
@@ -102,20 +103,34 @@ export function setCurrentState(key: string, value: string): void {
       setStateAtArr(STATE.filters.brand, value);
       break;
 
-    case 'price-min':
-      STATE.filters.price.min = parseInt(value, 10);
+    case 'price-from':
+      console.log('price-from value =', value);
+      valueArr = value.match(/\d+\.\d+/);
+      console.log(valueArr);
+      if (valueArr) STATE.filters.price.min = +valueArr[0];
+      console.log('price-from =', STATE.filters.price.min);
       break;
 
-    case 'price-max':
-      STATE.filters.price.max = parseInt(value, 10);
+    case 'price-to':
+      console.log('price-to value =', value);
+      valueArr = value.match(/\d+\.\d+/);
+      console.log(valueArr);
+      if (valueArr) STATE.filters.price.max = +valueArr[0];
+      console.log('price-to =', STATE.filters.price.max);
       break;
 
-    case 'stock-min':
-      STATE.filters.stock.min = parseInt(value, 10);
+    case 'stock-from':
+      valueArr = value.match(/\d+/);
+      console.log(valueArr);
+      if (valueArr) STATE.filters.stock.min = +valueArr[0];
+      // STATE.filters.stock.min = parseInt(value, 10);
       break;
 
-    case 'stock-max':
-      STATE.filters.stock.max = parseInt(value, 10);
+    case 'stock-to':
+      valueArr = value.match(/\d+/);
+      console.log(valueArr);
+      if (valueArr) STATE.filters.stock.max = +valueArr[0];
+      // STATE.filters.stock.max = parseInt(value, 10);
       break;
 
     case 'sort':

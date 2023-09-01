@@ -8,7 +8,18 @@ abstract class DualSliderFilter {
   constructor(protected sliderData: DualSlider) {}
 
   protected createSlider(currMin: number, currMax: number): string {
-    const { fromInputId, toInputId, fromTextId, toTextId, range, currencySymbol } = this.sliderData;
+    const {
+      fromInputId,
+      toInputId,
+      fromTextId,
+      toTextId,
+      range,
+      rangePadding,
+      currencySymbol,
+      // toFixedNumber,
+    } = this.sliderData;
+
+    console.log('range =', range);
 
     return `
       <div class="filters__filter-min-max">
@@ -17,12 +28,12 @@ abstract class DualSliderFilter {
         <div id="${toTextId}" ${currMin === 0 ? 'style="display: none;"' : ''}>${currencySymbol}${currMax}</div>
       </div>
       <div class="filters__range">
-        <input type="range" id="${fromInputId}" min="${range.min}" max="${range.max}" value="${
-      currMin > 0 ? currMin : range.min
-    }" />
-        <input type="range" id="${toInputId}" min="${range.min}" max="${range.max}" value="${
-      currMax > 0 ? currMax : range.min
-    }" />
+        <input type="range" id="${fromInputId}" min="${range.min - rangePadding}" max="${
+      range.max + rangePadding
+    }" value="${currMin > 0 ? currMin : range.min}" />
+        <input type="range" id="${toInputId}" min="${range.min - rangePadding}" max="${
+      range.max + rangePadding
+    }" value="${currMax > 0 ? currMax : range.max}" />
       </div>
     `;
   }
@@ -83,10 +94,10 @@ abstract class DualSliderFilter {
       this.fillSlider(fromSlider, toSlider, '#C6C6C6', '#46f0a9', toSlider);
       if (from > to) {
         fromSlider.value = `${to}`;
-        fromText.innerText = `${this.sliderData.currencySymbol}${to.toFixed(2)}`;
+        fromText.innerText = `${this.sliderData.currencySymbol}${to.toFixed(this.sliderData.toFixedNumber)}`;
       } else {
         fromSlider.value = `${from}`;
-        fromText.innerText = `${this.sliderData.currencySymbol}${from.toFixed(2)}`;
+        fromText.innerText = `${this.sliderData.currencySymbol}${from.toFixed(this.sliderData.toFixedNumber)}`;
       }
     };
 
@@ -100,10 +111,10 @@ abstract class DualSliderFilter {
       this.setToggleAccessible(toSlider);
       if (from <= to) {
         toSlider.value = `${to}`;
-        toText.innerText = `${this.sliderData.currencySymbol}${to.toFixed(2)}`;
+        toText.innerText = `${this.sliderData.currencySymbol}${to.toFixed(this.sliderData.toFixedNumber)}`;
       } else {
         toSlider.value = `${from}`;
-        toText.innerText = `${this.sliderData.currencySymbol}${from.toFixed(2)}`;
+        toText.innerText = `${this.sliderData.currencySymbol}${from.toFixed(this.sliderData.toFixedNumber)}`;
       }
     };
 
@@ -113,8 +124,8 @@ abstract class DualSliderFilter {
   }
 
   setSliderState(fromText: HTMLElement, toText: HTMLElement): void {
-    app.controller.appStateControl(this.sliderData.toInputId, toText.innerText);
     app.controller.appStateControl(this.sliderData.fromInputId, fromText.innerText);
+    app.controller.appStateControl(this.sliderData.toInputId, toText.innerText);
   }
 }
 
