@@ -5,6 +5,12 @@ import { DEFAULT_STATE } from '../../state/state';
 abstract class DualSliderFilter {
   products: Product[] = DEFAULT_STATE.products;
 
+  sliderColor = '#C6C6C6';
+
+  staticRangeColor = '#08ac68';
+
+  dynamicRangeColor = '#46f0a9';
+
   constructor(protected sliderData: DualSlider) {}
 
   protected createSlider(currMin: number, currMax: number): string {
@@ -19,8 +25,6 @@ abstract class DualSliderFilter {
       // toFixedNumber,
     } = this.sliderData;
 
-    console.log('range =', range);
-
     return `
       <div class="filters__filter-min-max">
         <div id="${fromTextId}" ${currMin === 0 ? 'style="display: none;"' : ''}>${currencySymbol}${currMin}</div>
@@ -33,7 +37,12 @@ abstract class DualSliderFilter {
     }" value="${currMin > 0 ? currMin : range.min}" />
         <input type="range" id="${toInputId}" min="${range.min - rangePadding}" max="${
       range.max + rangePadding
-    }" value="${currMax > 0 ? currMax : range.max}" />
+    }" value="${currMax > 0 ? currMax : range.max}" style="background-image: ${this.createBackground(
+      currMin,
+      currMax,
+      this.sliderColor,
+      this.staticRangeColor
+    )}"/>
       </div>
     `;
   }
@@ -44,7 +53,11 @@ abstract class DualSliderFilter {
     return [from, to];
   }
 
-  private getPercentValue(curr: number, min = this.sliderData.range.min, max = this.sliderData.range.max): number {
+  private getPercentValue(
+    curr: number,
+    min = this.sliderData.range.min - this.sliderData.rangePadding,
+    max = this.sliderData.range.max + this.sliderData.rangePadding
+  ): number {
     return ((curr - min) / (max - min)) * 100;
   }
 
@@ -68,8 +81,10 @@ abstract class DualSliderFilter {
     controlSlider: HTMLInputElement
   ) {
     // const rangeDistance = +to.max - +to.min;
-    const fromPosition = +from.value - +to.min;
-    const toPosition = +to.value - +to.min;
+    // const fromPosition = +from.value - +to.min;
+    // const toPosition = +to.value - +to.min;
+    const fromPosition = +from.value;
+    const toPosition = +to.value;
     const sliderToFill = controlSlider;
     sliderToFill.style.backgroundImage = this.createBackground(fromPosition, toPosition, sliderColor, rangeColor);
   }
@@ -91,7 +106,7 @@ abstract class DualSliderFilter {
 
     fromSlider.oninput = () => {
       const [from, to] = this.getParsed(fromSlider, toSlider);
-      this.fillSlider(fromSlider, toSlider, '#C6C6C6', '#46f0a9', toSlider);
+      this.fillSlider(fromSlider, toSlider, this.sliderColor, this.dynamicRangeColor, toSlider);
       if (from > to) {
         fromSlider.value = `${to}`;
         fromText.innerText = `${this.sliderData.currencySymbol}${to.toFixed(this.sliderData.toFixedNumber)}`;
@@ -107,7 +122,7 @@ abstract class DualSliderFilter {
 
     toSlider.oninput = () => {
       const [from, to] = this.getParsed(fromSlider, toSlider);
-      this.fillSlider(fromSlider, toSlider, '#C6C6C6', '#46f0a9', toSlider);
+      this.fillSlider(fromSlider, toSlider, this.sliderColor, this.dynamicRangeColor, toSlider);
       this.setToggleAccessible(toSlider);
       if (from <= to) {
         toSlider.value = `${to}`;

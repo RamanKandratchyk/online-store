@@ -11,7 +11,7 @@ export const stockFilterData: DualSlider = {
   toTextId: 'stock-to-text',
   fromInputId: 'stock-from',
   toInputId: 'stock-to',
-  rangePadding: 0,
+  rangePadding: 1,
   currencySymbol: '',
   toFixedNumber: 0,
 };

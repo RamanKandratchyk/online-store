@@ -104,33 +104,23 @@ export function setCurrentState(key: string, value: string): void {
       break;
 
     case 'price-from':
-      console.log('price-from value =', value);
       valueArr = value.match(/\d+\.\d+/);
-      console.log(valueArr);
       if (valueArr) STATE.filters.price.min = +valueArr[0];
-      console.log('price-from =', STATE.filters.price.min);
       break;
 
     case 'price-to':
-      console.log('price-to value =', value);
       valueArr = value.match(/\d+\.\d+/);
-      console.log(valueArr);
       if (valueArr) STATE.filters.price.max = +valueArr[0];
-      console.log('price-to =', STATE.filters.price.max);
       break;
 
     case 'stock-from':
       valueArr = value.match(/\d+/);
-      console.log(valueArr);
       if (valueArr) STATE.filters.stock.min = +valueArr[0];
-      // STATE.filters.stock.min = parseInt(value, 10);
       break;
 
     case 'stock-to':
       valueArr = value.match(/\d+/);
-      console.log(valueArr);
       if (valueArr) STATE.filters.stock.max = +valueArr[0];
-      // STATE.filters.stock.max = parseInt(value, 10);
       break;
 
     case 'sort':
