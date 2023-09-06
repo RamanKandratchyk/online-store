@@ -45,7 +45,8 @@ class App {
         try {
           main.innerHTML = this.view.productDetails.render(id);
           this.view.productDetails.setListeners();
-        } catch {
+        } catch (err) {
+          console.log('catch error =', err);
           this.view.page404.render();
         }
       });

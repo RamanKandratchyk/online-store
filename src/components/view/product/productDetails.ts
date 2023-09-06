@@ -12,7 +12,8 @@ class ProductDetails {
 
   render(id: string): string {
     this.getProduct(+id);
-    const homeHref: string = document.querySelector('.header__logo-link')?.getAttribute('href') as string;
+    const homeHref: string = document.querySelector('.header__main-title')?.getAttribute('href') as string;
+    console.log('homeHref =', homeHref);
 
     document.getElementsByTagName('main')[0].setAttribute('class', 'main-details');
     return `
@@ -20,11 +21,17 @@ class ProductDetails {
         <div class="link-navigation">
           <a href="${homeHref}" class="link-item">STORE</a>
           <span>>></span>
-          <span class="link-item">${this.product.category.toUpperCase()}</span>
+          <a href="${window.location.href.replace(
+            /\?(.*)/,
+            `?category=${this.product.category}`
+          )}" class="link-item">${this.product.category.toUpperCase()}</a>
           <span>>></span>
-          <a href="" class="link-item">${this.product.brand.toUpperCase()}</a>
+          <a href="${window.location.href.replace(
+            /\?(.*)/,
+            `?brand=${this.product.brand}`
+          )}" class="link-item">${this.product.brand.toUpperCase()}</a>
           <span>>></span>
-          <a href="" class="link-item">${this.product.title.toUpperCase()}</a>
+          <a href="${window.location.href}" class="link-item">${this.product.title.toUpperCase()}</a>
         </div>
         <div class="product-detail">
           <div class="product-title">
@@ -48,7 +55,7 @@ class ProductDetails {
             </div>
             <div class="cart-info">
               <div class="cart-info__cart-buttons">
-                €${this.product.price}
+                €${this.product.price.toFixed(2)}
                 <button id="product-add-btn" class="cart-button">${this.getCartButtonName()}</button>
                 <button id="product-buy-btn" class="cart-button">BUY NOW</button>
               </div>
@@ -65,8 +72,8 @@ class ProductDetails {
       this.product.discountPercentage,
       this.product.rating,
       this.product.stock,
-      this.product.brand,
-      this.product.category,
+      this.product.brandName,
+      this.product.categoryName,
     ];
     const headings: string[] = ['Description:', 'Discount Percentage:', 'Rating:', 'Stock:', 'Brand:', 'Category:'];
 
@@ -109,7 +116,7 @@ class ProductDetails {
       addBtn.textContent = this.getCartButtonName();
     };
 
-    const buyBtn = document.querySelector('product-buy-btn') as HTMLButtonElement;
+    const buyBtn = document.getElementById('product-buy-btn') as HTMLButtonElement;
     buyBtn.onclick = () => {
       if (!STATE.cartProducts.find((item) => item.id === this.product.id))
         app.controller.appStateControl('cart', addBtn.value, false);
