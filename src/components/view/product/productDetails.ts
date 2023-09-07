@@ -22,12 +22,12 @@ class ProductDetails {
           <a href="${homeHref}" class="link-item">STORE</a>
           <span>>></span>
           <a href="${window.location.href.replace(
-            /\?(.*)/,
+            /\?(.*)|#(.*)/,
             `?category=${this.product.category}`
           )}" class="link-item">${this.product.category.toUpperCase()}</a>
           <span>>></span>
           <a href="${window.location.href.replace(
-            /\?(.*)/,
+            /\?(.*)|#(.*)/,
             `?brand=${this.product.brand}`
           )}" class="link-item">${this.product.brand.toUpperCase()}</a>
           <span>>></span>

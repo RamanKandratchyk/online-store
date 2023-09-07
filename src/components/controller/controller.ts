@@ -82,6 +82,7 @@ class Controller {
         ? `<span class="header__cart-total">Cart total:</span> €${appState.getSumPriceWithPromo().toFixed(2)}`
         : `<span class="header__cart-total">Cart total:</span> €${appState.getSumPrice().toFixed(2)}`;
     (document.querySelector('.header__cart-number') as HTMLDivElement).innerText = `${appState.getAmountCart()}`;
+    console.log('setHeaderCart EXECUTE');
   }
 
   setLocalStorage(): void {

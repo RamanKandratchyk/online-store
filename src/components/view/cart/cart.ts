@@ -97,11 +97,12 @@ class Cart {
 
   addProduct(id: string): void {
     const count = appState.addProdToCart(+id);
-    app.controller.setHeaderCart();
+    // app.controller.setHeaderCart();
     this.cartTotal.changeValue();
-    const cartElementCount = document.querySelector(`#${id} .number-control__count`) as HTMLSpanElement;
+
+    const cartElementID = document.getElementById(`${id}`) as HTMLDivElement;
+    const cartElementCount = cartElementID.querySelector(`.number-control__count`) as HTMLSpanElement;
     cartElementCount.innerHTML = count.toString();
-    app.controller.setHeaderCart();
 
     if (STATE.cartPromocode.length > 0) {
       const newPriceDiv = document.querySelector('.new-price') as HTMLDivElement;
@@ -114,12 +115,13 @@ class Cart {
 
   removeProduct(id: string): void {
     const count = appState.removeProdFromCart(+id);
-    app.controller.setHeaderCart();
+    // app.controller.setHeaderCart();
 
     if (count) {
       this.cartTotal.changeValue();
 
-      const cartElementCount = document.querySelector(`#${id} .number-control__count`) as HTMLSpanElement;
+      const cartElementID = document.getElementById(`${id}`) as HTMLDivElement;
+      const cartElementCount = cartElementID.querySelector(`.number-control__count`) as HTMLSpanElement;
       cartElementCount.innerHTML = count.toString();
 
       if (STATE.cartPromocode.length > 0) {
@@ -163,6 +165,7 @@ class Cart {
     main.innerHTML = this.render(pageList);
     this.cartTotal.changeValue();
     this.setListeners();
+    app.controller.setHeaderCart();
   }
 
   setListeners(): void {

@@ -51,10 +51,10 @@ class CartTotal {
       ${appState.getAmountCart()}
     `;
 
-    const cartTotalPrice = document.querySelector('.header__total-price') as HTMLElement;
+    const cartTotalPrice = document.querySelector('.header__total-price') as HTMLElement; //! change for cart__total
     cartTotalPrice.innerHTML = `
       <span class="header__cart-total">Cart total:</span>
-      €${appState.getSumPrice()}
+      €${appState.getSumPrice().toFixed(2)}
     `;
   }
 
