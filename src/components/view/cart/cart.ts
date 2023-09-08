@@ -97,7 +97,7 @@ class Cart {
 
   addProduct(id: string): void {
     const count = appState.addProdToCart(+id);
-    // app.controller.setHeaderCart();
+    app.controller.setHeaderCart();
     this.cartTotal.changeValue();
 
     const cartElementID = document.getElementById(`${id}`) as HTMLDivElement;
@@ -115,7 +115,7 @@ class Cart {
 
   removeProduct(id: string): void {
     const count = appState.removeProdFromCart(+id);
-    // app.controller.setHeaderCart();
+    app.controller.setHeaderCart();
 
     if (count) {
       this.cartTotal.changeValue();

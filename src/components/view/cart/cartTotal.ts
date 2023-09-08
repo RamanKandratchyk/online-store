@@ -18,8 +18,11 @@ class CartTotal {
         ${appState.getAmountCart()}
       </div>
       <div class="total-value old-price">
-        <span class="total-value__title">Total: </span>
-        €${appState.hasPromocode() ? appState.getSumPrice().toFixed(2) : ''}
+      ${
+        appState.hasPromocode()
+          ? `<span class="total-value__title">Total: </span> €${appState.getSumPrice().toFixed(2)}`
+          : ''
+      }
       </div>
       <div class="total-value new-price">
         <span class="total-value__title">Total: </span>
@@ -51,9 +54,9 @@ class CartTotal {
       ${appState.getAmountCart()}
     `;
 
-    const cartTotalPrice = document.querySelector('.header__total-price') as HTMLElement; //! change for cart__total
+    const cartTotalPrice = document.querySelector('.total-value.new-price') as HTMLElement;
     cartTotalPrice.innerHTML = `
-      <span class="header__cart-total">Cart total:</span>
+      <span class="total-value__title">Total: </span>
       €${appState.getSumPrice().toFixed(2)}
     `;
   }
