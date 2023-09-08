@@ -72,7 +72,7 @@ class Cart {
                 <div class="page-numbers">
                   PAGE:
                   <button class="page-number-button prev"><</button>
-                  <span class="cur-page-number">${this.checkItemsPage()}</span>
+                  <span class="cur-page-number">${this.checkItemsPage().curPage} / ${this.checkItemsPage().pages}</span>
                   <button class="page-number-button next">></button>
                 </div>
               </div>
@@ -156,12 +156,13 @@ class Cart {
     }
   }
 
-  checkItemsPage(): number {
-    if (STATE.cartPage > Math.ceil(STATE.cartProducts.length / STATE.cartItems)) {
+  checkItemsPage(): { curPage: number; pages: number } {
+    const pages: number = Math.ceil(STATE.cartProducts.length / STATE.cartItems);
+    if (STATE.cartPage > pages) {
       STATE.cartPage = 1;
       app.controller.setSearchParams('page', `${STATE.cartPage}`);
     }
-    return STATE.cartPage;
+    return { curPage: STATE.cartPage, pages };
   }
 
   renderPageList(): void {
@@ -175,6 +176,7 @@ class Cart {
   cartLimitInputFunc(input: HTMLInputElement): void {
     const inputHandle = input;
     if (+input.value < 1) inputHandle.value = '1';
+    if (+input.value > STATE.cartProducts.length) inputHandle.value = `${STATE.cartProducts.length}`;
     app.controller.appStateControl('items', inputHandle.value);
     const pageList = this.cartPagination.getPageList(STATE.cartItems, STATE.cartPage);
     const main = document.getElementsByTagName('main')[0];
@@ -207,33 +209,11 @@ class Cart {
 
     cartLimitInput.oninput = () => this.cartLimitInputFunc(cartLimitInput);
 
-    // cartLimitInput.oninput = () => {
-    //   if (+cartLimitInput.value < 1) cartLimitInput.value = '1';
-    //   app.controller.appStateControl('items', cartLimitInput.value);
-    //   const pageList = this.cartPagination.getPageList(STATE.cartItems, STATE.cartPage);
-    //   const main = document.getElementsByTagName('main')[0];
-    //   main.innerHTML = this.render(pageList);
-    //   this.cartTotal.changeValue();
-    //   this.setListeners();
-    // };
-
     cartLimit.onclick = (event) => {
       if (event.target !== cartLimitInput) {
         this.cartLimitInputFunc(cartLimitInput);
       }
     };
-
-    // cartLimit.addEventListener('click', (event) => {
-    //   if (event.target !== cartLimitInput) {
-    //     if (+cartLimitInput.value < 1) cartLimitInput.value = '1';
-    //     app.controller.appStateControl('items', cartLimitInput.value);
-    //     const pageList = this.cartPagination.getPageList(STATE.cartItems, STATE.cartPage);
-    //     const main = document.getElementsByTagName('main')[0];
-    //     main.innerHTML = this.render(pageList);
-    //     this.cartTotal.changeValue();
-    //     this.setListeners();
-    //   }
-    // });
 
     const prev = document.querySelector('.prev') as HTMLElement;
     prev.onclick = () => {

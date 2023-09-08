@@ -12,7 +12,7 @@ class CartPagination {
     if (pages > 0 && pages < page) {
       STATE.cartPage -= 1;
       const curPageNumber = document.querySelector('.cur-page-number') as HTMLElement;
-      curPageNumber.textContent = STATE.cartPage.toString();
+      curPageNumber.textContent = `${STATE.cartPage.toString()} / ${pages}`;
       return cartProducts.slice(startEl - items, endEl - items);
     }
 
