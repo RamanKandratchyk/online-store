@@ -43,13 +43,13 @@ class Cart {
               </div>
             </div>
             <div class="number-control">
-              <div class="cart-stock-control">Stock: ${cartProduct.stock}</div>
+              <div class="cart-stock-control">Stock: ${cartProduct.stock - cartElement.count}</div>
               <div class="incDec-control">
                 <button class="incDec-control__button" name="minus">-</button>
                 <span class="number-control__count">${cartElement.count}</span>
                 <button class="incDec-control__button" name="plus">+</button>
               </div>
-              <div class="cart-amount-control">€${cartProduct.price.toFixed(2)}</div>
+              <div class="cart-amount-control">€${(cartProduct.price * cartElement.count).toFixed(2)}</div>
             </div>
           </div>
         </div>
@@ -111,18 +111,26 @@ class Cart {
         €${appState.getSumPriceWithPromo().toFixed(2)}
       `;
     }
+
+    const prod = PRODUCTS.find((prd) => prd.id === +id);
+    const cartElementStockRest = cartElementID.querySelector(`.cart-stock-control`) as HTMLSpanElement;
+    const cartElementPriceSum = cartElementID.querySelector(`.cart-amount-control`) as HTMLSpanElement;
+    if (prod) {
+      cartElementStockRest.innerHTML = `Stock: ${(prod.stock - count).toString()}`;
+      cartElementPriceSum.innerHTML = `€${(prod.price * count).toFixed(2)}`;
+    }
   }
 
   removeProduct(id: string): void {
     const count = appState.removeProdFromCart(+id);
     app.controller.setHeaderCart();
 
+    const cartElementID = document.getElementById(`${id}`) as HTMLDivElement;
+    const cartElementCount = cartElementID.querySelector(`.number-control__count`) as HTMLSpanElement;
+    if (count) cartElementCount.innerHTML = count.toString();
+
     if (count) {
       this.cartTotal.changeValue();
-
-      const cartElementID = document.getElementById(`${id}`) as HTMLDivElement;
-      const cartElementCount = cartElementID.querySelector(`.number-control__count`) as HTMLSpanElement;
-      cartElementCount.innerHTML = count.toString();
 
       if (STATE.cartPromocode.length > 0) {
         const newPriceDiv = document.querySelector('.new-price') as HTMLDivElement;
@@ -137,6 +145,14 @@ class Cart {
       main.innerHTML = this.render(pageList);
 
       if (STATE.cartProducts.length !== 0) this.setListeners();
+    }
+
+    const prod = PRODUCTS.find((prd) => prd.id === +id);
+    const cartElementStockRest = cartElementID.querySelector(`.cart-stock-control`) as HTMLSpanElement;
+    const cartElementPriceSum = cartElementID.querySelector(`.cart-amount-control`) as HTMLSpanElement;
+    if (prod && count) {
+      cartElementStockRest.innerHTML = `Stock: ${(prod.stock - count).toString()}`;
+      cartElementPriceSum.innerHTML = `€${(prod.price * count).toFixed(2)}`;
     }
   }
 
