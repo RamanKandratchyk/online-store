@@ -56,7 +56,7 @@ class ProductDetails {
             <div class="cart-info">
               <div class="cart-info__cart-buttons">
                 €${this.product.price.toFixed(2)}
-                <button id="product-add-btn" class="cart-button">${this.getCartButtonName()}</button>
+                <button id="product-add-btn" class="cart-button" value="${id}">${this.getCartButtonName()}</button>
                 <button id="product-buy-btn" class="cart-button">BUY NOW</button>
               </div>
             </div>
@@ -113,6 +113,7 @@ class ProductDetails {
     const addBtn = document.getElementById('product-add-btn') as HTMLButtonElement;
     addBtn.onclick = () => {
       app.controller.appStateControl('cart', addBtn.value, false);
+      app.controller.appStateControl('items', STATE.cartItems.toString());
       addBtn.textContent = this.getCartButtonName();
     };
 

@@ -47,6 +47,7 @@ export function addProdToCart(id: number): number {
     };
     STATE.cartProducts.push(prod);
   }
+  STATE.cartItems = STATE.cartProducts.length;
   return prod.count;
 }
 
@@ -56,10 +57,11 @@ export function removeProdFromCart(id: number, isDrop = false): number | undefin
   if (isDrop || prod.count === 1) {
     STATE.cartProducts.splice(STATE.cartProducts.indexOf(prod), 1);
     if (STATE.cartProducts.length === 0) STATE.cartPromocode = [];
+    STATE.cartItems = STATE.cartProducts.length;
     return undefined;
   }
   prod.count -= 1;
-
+  STATE.cartItems = STATE.cartProducts.length;
   return prod.count;
 }
 
