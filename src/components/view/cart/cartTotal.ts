@@ -54,10 +54,16 @@ class CartTotal {
       ${appState.getAmountCart()}
     `;
 
-    const cartTotalPrice = document.querySelector('.total-value.new-price') as HTMLElement;
-    cartTotalPrice.innerHTML = `
+    const cartTotalOldPrice = document.querySelector('.total-value.old-price') as HTMLElement;
+    cartTotalOldPrice.innerHTML = `
       <span class="total-value__title">Total: </span>
       €${appState.getSumPrice().toFixed(2)}
+    `;
+
+    const cartTotalNewPrice = document.querySelector('.total-value.new-price') as HTMLElement;
+    cartTotalNewPrice.innerHTML = `
+      <span class="total-value__title">Total: </span>
+      €${appState.getSumPriceWithPromo().toFixed(2)}
     `;
   }
 
@@ -78,7 +84,7 @@ class CartTotal {
 
       if (promocode) {
         promoCodesPreview.innerHTML = this.cartPromocode.renderPreview(promocode);
-        const addBtn = document.querySelector('.promo-add-btn') as HTMLButtonElement;
+        const addBtn = document.querySelector('.code-add-button') as HTMLButtonElement;
 
         if (appState.getPromocode(promocode.id)) {
           addBtn.style.display = 'none';

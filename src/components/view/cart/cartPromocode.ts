@@ -24,7 +24,7 @@ class CartPromocode {
   renderPreview(data: CartPromocodeState) {
     return `
       ${data.name} -${data.discount}%
-      <button class="code-drop-button">ADD</button>
+      <button class="code-add-button">ADD</button>
     `;
   }
 }

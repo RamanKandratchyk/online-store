@@ -73,7 +73,7 @@ export function getSumPrice(): number {
 
 export function getSumPriceWithPromo(): number {
   const promo = STATE.cartPromocode.reduce((acc, el) => acc + el.discount / 100, 0);
-  return Math.round(getSumPrice() - getSumPrice() * promo);
+  return getSumPrice() - getSumPrice() * promo;
 }
 
 export function removePromocode(id: string) {
