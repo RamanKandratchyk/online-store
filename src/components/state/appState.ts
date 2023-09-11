@@ -48,6 +48,7 @@ export function addProdToCart(id: number): number {
     STATE.cartProducts.push(prod);
   }
   STATE.cartItems = STATE.cartProducts.length;
+  // setCurrentState('items', STATE.cartProducts.length.toString());
   return prod.count;
 }
 

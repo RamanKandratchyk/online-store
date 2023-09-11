@@ -8,6 +8,8 @@ class Controller {
     appState.setCurrentState(key, value);
     if (key === 'cart') {
       this.setHeaderCart();
+      appState.setCurrentState('items', STATE.cartProducts.length.toString());
+      this.setSearchParams('items', STATE.cartProducts.length.toString());
     } else {
       let updValue: string = value;
       if (key === 'category') updValue = STATE.filters.category.toString();

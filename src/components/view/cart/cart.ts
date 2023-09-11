@@ -201,6 +201,8 @@ class Cart {
           this.removeProduct(item.id);
           if (STATE.cartProducts.length !== 0) this.cartTotal.changeValue();
         }
+
+        app.controller.appStateControl('items', STATE.cartItems.toString());
       })
     );
 
