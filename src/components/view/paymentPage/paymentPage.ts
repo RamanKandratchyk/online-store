@@ -26,7 +26,7 @@ class PaymentPage {
               <div class="form-item person-email">
                 <input type="email" class="form-item__input" name="email-input" placeholder="E-mail" />
               </div>
-            </div  
+            </div>
 
             <div class="card-details">
               <h2 class="card-details__title">Credit card details</h2>
@@ -40,7 +40,7 @@ class PaymentPage {
                     maxlength="19"
                     placeholder="Card number"
                   />
-                </div
+                </div>
 
                 <div class="other-card-data">
                   <div class="valid-data">
@@ -65,7 +65,7 @@ class PaymentPage {
                   </div>
                 </div>
               </div>
-            </div  
+            </div>
             <button class="card-submit-button" type="submit">CONFIRM</button>
           </form>
         </div>
@@ -107,19 +107,19 @@ class PaymentPage {
       case 'card-number-input':
         parent.insertAdjacentHTML(
           'beforeend',
-          `<div id="${this.getErrorId(input.name)} class="card-err"">Card number - error</div>`
+          `<div id="${this.getErrorId(input.name)}" class="card-err">Card number - error</div>`
         );
         break;
       case 'card-term-input':
         parent.insertAdjacentHTML(
           'beforeend',
-          `<div id="${this.getErrorId(input.name)} class="card-err">Card valid thru - error</div>`
+          `<div id="${this.getErrorId(input.name)}" class="card-err">Card valid thru - error</div>`
         );
         break;
       case 'card-cvv-input':
         parent.insertAdjacentHTML(
           'beforeend',
-          `<div id="${this.getErrorId(input.name)} class="card-err"">Card CVV - error</div>`
+          `<div id="${this.getErrorId(input.name)}" class="card-err">Card CVV - error</div>`
         );
         break;
       default:
@@ -233,7 +233,7 @@ class PaymentPage {
 
       if (target.value.length > 2) {
         const workedTargetValue: RegExpMatchArray | null = target.value.replace(/\//g, '').match(/\d{2}|\d/g);
-        if (workedTargetValue) target.value = workedTargetValue.join(' ');
+        if (workedTargetValue) target.value = workedTargetValue.join('/');
       }
 
       if (Number.isNaN(+target.value.replace(/\s/g, '').replace(/\//g, ''))) target.value = target.value.slice(0, -1);
