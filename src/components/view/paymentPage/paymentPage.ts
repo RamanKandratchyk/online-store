@@ -156,7 +156,7 @@ class PaymentPage {
   }
 
   setListeners(): void {
-    const paymentForm = document.querySelector('.modal-form') as HTMLInputElement;
+    const paymentForm = document.querySelector('.modal-form') as HTMLFormElement;
     const paymentFormName = document.querySelector('[name="name-input"]') as HTMLInputElement;
     const paymentFormPhone = document.querySelector('[name="phone-input"]') as HTMLInputElement;
     const paymentFormAddress = document.querySelector('[name="address-input"]') as HTMLInputElement;
@@ -172,20 +172,23 @@ class PaymentPage {
       [paymentFormEmail, paymentValidation.checkEmail],
     ];
 
+    const cardInputData: [HTMLInputElement, RegExpCallBack<string>][] = [
+      [paymentFormCardNumber, paymentValidation.checkCardNumber],
+      [paymentFormCardTerm, paymentValidation.checkCardTerm],
+      [paymentFormCardCVV, paymentValidation.checkCardCVV],
+    ];
+
     paymentForm.onsubmit = (event) => {
       event.preventDefault();
 
       inputData.forEach(([input, cb]) => this.setError(input, cb));
 
-      this.setCardError(paymentFormCardNumber, paymentValidation.checkCardNumber);
-
-      this.setCardError(paymentFormCardTerm, paymentValidation.checkCardTerm);
-
-      this.setCardError(paymentFormCardCVV, paymentValidation.checkCardCVV);
+      cardInputData.forEach(([input, cb]) => this.setCardError(input, cb));
 
       if (this.isFormValid) {
         const mainCart = document.querySelector('.main-cart') as HTMLElement;
         STATE.cartProducts = [];
+        STATE.cartPromocode = [];
         mainCart.innerHTML = app.view.cart.render();
         app.controller.setHeaderCart();
         window.location.href = '#/';
@@ -223,9 +226,9 @@ class PaymentPage {
           paymentFormCardImg.src = cardsLogoUrls.noLogo;
       }
 
-      this.setCardError(target, paymentValidation.checkCardNumber, true);
-
       if (Number.isNaN(+target.value.replace(/\s/g, ''))) target.value = target.value.slice(0, -1);
+
+      this.setCardError(target, paymentValidation.checkCardNumber, true);
     };
 
     paymentFormCardTerm.oninput = (event) => {

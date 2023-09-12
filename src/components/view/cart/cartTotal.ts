@@ -69,7 +69,7 @@ class CartTotal {
 
   openPaymentPage() {
     const cartContainer = document.querySelector('.cart-container') as HTMLElement;
-    cartContainer.innerHTML += this.paymentPage.render();
+    cartContainer.insertAdjacentHTML('beforeend', this.paymentPage.render());
     this.paymentPage.setListeners();
   }
 
