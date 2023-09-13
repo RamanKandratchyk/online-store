@@ -47,7 +47,7 @@ export function addProdToCart(id: number): number {
     };
     STATE.cartProducts.push(prod);
   }
-  STATE.cartItems = STATE.cartProducts.length;
+  // STATE.cartItems = STATE.cartProducts.length;
   // setCurrentState('items', STATE.cartProducts.length.toString());
   return prod.count;
 }
@@ -62,7 +62,7 @@ export function removeProdFromCart(id: number, isDrop = false): number | undefin
     return undefined;
   }
   prod.count -= 1;
-  STATE.cartItems = STATE.cartProducts.length;
+  // STATE.cartItems = STATE.cartProducts.length;
   return prod.count;
 }
 

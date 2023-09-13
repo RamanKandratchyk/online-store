@@ -56,8 +56,11 @@ class CartTotal {
 
     const cartTotalOldPrice = document.querySelector('.total-value.old-price') as HTMLElement;
     cartTotalOldPrice.innerHTML = `
-      <span class="total-value__title">Total: </span>
-      €${appState.getSumPrice().toFixed(2)}
+    ${
+      appState.hasPromocode()
+        ? `<span class="total-value__title">Total: </span> €${appState.getSumPrice().toFixed(2)}`
+        : ''
+    }
     `;
 
     const cartTotalNewPrice = document.querySelector('.total-value.new-price') as HTMLElement;
