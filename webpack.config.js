@@ -68,6 +68,10 @@ const baseConfig = {
     historyApiFallback: true,
     port: 5000,
   },
+  performance: {
+    maxEntrypointSize: 768000,
+    maxAssetSize: 1536000
+  },
 };
 
 module.exports = ({ mode }) => {
