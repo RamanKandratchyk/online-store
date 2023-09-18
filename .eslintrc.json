@@ -13,7 +13,6 @@
     "ecmaVersion": 2020,
     "sourceType": "module",
     "project": "./tsconfig.json"
-    // "tsconfigRootDir": "__dirname"
   },
   "env": {
     "es6": true,
@@ -21,14 +20,13 @@
     "node": true
   },
   "rules": {
-    // "prettier/prettier": "error",
     "no-debugger": "off",
     "no-console": 0,
     "class-methods-use-this": "off",
-    // "@typescript-eslint/rule-name": "error",
     "@typescript-eslint/no-explicit-any": "warn",
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
-    "import/no-cycle": [2, { "maxDepth": 1 }]
+    "import/no-cycle": [2, { "maxDepth": 1 }],
+    "import/no-mutable-exports": "off"
   },
   "parser": "@typescript-eslint/parser"
 }

@@ -38,5 +38,9 @@ export const DEFAULT_STATE: AppState = {
   products: PRODUCTS,
 };
 
-export const STATE: AppState = structuredClone(DEFAULT_STATE);
+export let STATE: AppState = structuredClone(DEFAULT_STATE);
 // export const STATE: AppState = JSON.parse(JSON.stringify(DEFAULT_STATE)) as AppState;
+
+export function resetState(): void {
+  STATE = structuredClone(DEFAULT_STATE);
+}
