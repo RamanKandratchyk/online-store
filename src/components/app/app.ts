@@ -31,6 +31,10 @@ class App {
     };
 
     const main = document.getElementsByTagName('main')[0];
+    // const mainTitleRef = document.querySelector('.header__main-title') as HTMLHRElement;
+    // mainTitleRef.setAttribute('href', `${window.location.href.replace(/\?(.*)$/, '')}`);
+    // const cartRef = document.querySelector('.header__cart-container') as HTMLHRElement;
+    // cartRef.setAttribute('href', `${window.location.href.replace(/\?(.*)$/, '')}#/cart`);
 
     this.router
       .add(/^$/, () => {

@@ -34,6 +34,7 @@ class Controller {
     STATE.products = appState.productFilter();
     this.resetFilterParams();
     app.router.resolveRoute();
+    this.setLinkHref();
   }
 
   setLinkHref(): void {

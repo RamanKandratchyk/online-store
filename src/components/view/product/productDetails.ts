@@ -13,7 +13,6 @@ class ProductDetails {
   render(id: string): string {
     this.getProduct(+id);
     const homeHref: string = document.querySelector('.header__main-title')?.getAttribute('href') as string;
-    // console.log('homeHref =', homeHref);
 
     document.getElementsByTagName('main')[0].setAttribute('class', 'main-details');
     return `

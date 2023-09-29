@@ -69,10 +69,10 @@ class Router {
   };
 
   resolveRoute = (): void => {
-    if (window.location.pathname !== '/') {
-      app.view.page404.render();
-      return;
-    }
+    // if (window.location.pathname !== '/') {
+    //   app.view.page404.render();
+    //   return;
+    // }
 
     this.current = this.getFragment();
 
