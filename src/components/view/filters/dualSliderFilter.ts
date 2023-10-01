@@ -22,14 +22,18 @@ abstract class DualSliderFilter {
       range,
       rangePadding,
       currencySymbol,
-      // toFixedNumber,
+      toFixedNumber,
     } = this.sliderData;
 
     return `
       <div class="filters__filter-min-max">
-        <div id="${fromTextId}" ${currMin === 0 ? 'style="display: none;"' : ''}>${currencySymbol}${currMin}</div>
+        <div id="${fromTextId}" ${currMin === 0 ? 'style="display: none;"' : ''}>${currencySymbol}${currMin.toFixed(
+      toFixedNumber
+    )}</div>
         <span> ${currMin === 0 ? 'Products Not Found' : '⟷'} </span>
-        <div id="${toTextId}" ${currMin === 0 ? 'style="display: none;"' : ''}>${currencySymbol}${currMax}</div>
+        <div id="${toTextId}" ${currMin === 0 ? 'style="display: none;"' : ''}>${currencySymbol}${currMax.toFixed(
+      toFixedNumber
+    )}</div>
       </div>
       <div class="filters__range">
         <input type="range" id="${fromInputId}" min="${range.min - rangePadding}" max="${

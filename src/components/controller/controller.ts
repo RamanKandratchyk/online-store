@@ -61,8 +61,8 @@ class Controller {
           appState.setCurrentState(key, decodeVal.replace(/\+/gi, ' '));
         });
       });
-      this.setLinkHref();
     }
+    this.setLinkHref();
   }
 
   copyToClipboard(event: Event) {
